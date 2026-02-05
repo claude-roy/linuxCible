@@ -1,0 +1,32 @@
+2026-02-05 13:08:15,039 p=95051 u=clroy n=ansible WARNING| [WARNING]: Host 'control' is using the discovered Python interpreter at '/opt/homebrew/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-05 13:08:15,040 p=95051 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-05 13:08:15,164 p=95051 u=clroy n=ansible WARNING| [WARNING]: Host 'linux-cible' is using the discovered Python interpreter at '/usr/bin/python3.13', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-05 13:08:15,164 p=95051 u=clroy n=ansible INFO| linux-cible | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.13"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-05 13:09:25,831 p=95414 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-05 13:09:25,907 p=95414 u=clroy n=ansible INFO| linux-cible | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.13"
+    },
+    "changed": false,
+    "ping": "pong"
+}
