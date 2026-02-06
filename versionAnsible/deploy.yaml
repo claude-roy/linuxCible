@@ -47,57 +47,61 @@
         group: jim
         mode: 0775
       tags: reps
-    - name: Create directory conf
+    - name: Creer repertoire pour Mutillidae
       ansible.builtin.file:
-        path: /home/deploy/webapp/conf
+        path: /home/jim/webapp/mutillidae-dockerhub
         state: directory
-        owner: deploy
-        group: deploy
+        owner: jim
+        group: jim
         mode: 0775
       tags: reps
-    - name: Create directory php
-      ansible.builtin.file:
-        path: /home/deploy/webapp/php
-        state: directory
-        owner: deploy
-        group: deploy
-      tags : reps
 
   tasks:
-    - name: Copie fichier default.conf
+    - name: Clone mutillidae
+      ansible.builtin.git:
+        repo: 'https://github.com/webpwnized/mutillidae-dockerhub.git'
+        dest: /home/jim/webapp/mutillidae-dockerhub
+      tags: clone_git
+    - name: Copie fichier docker-compose pour mutillidae
       copy:
-        src: ./conf/default.conf
-        dest: /home/deploy/webapp/conf/default.conf
-        mode: 0755
-      tags: copy_files
-    - name: Copie fichier index.php
-      copy:
-        src: ./html/index.php
-        dest: /home/deploy/webapp/html/index.php
-        mode: 0755
-      tags: copy_files
-    - name: Copie fichier php Dockerfile
-      copy:
-        src: ./php/Dockerfile
-        dest: /home/deploy/webapp/php/Dockerfile
+        src: ./conf/docker-compose.yml
+        dest: /home/jim/webapp/mutillidae-dockerhub/docker-compose.yml
         mode: 0755
       tags: copy_files
     - name: Copie fichier compose.yaml
       copy:
-        src: ./compose.yaml
-        dest: /home/deploy/webapp/compose.yaml
+        src: ./conf/compose.yaml
+        dest: /home/jim/webapp/compose.yaml
+        mode: 0755
+      tags: copy_files
+    - name: Copie fichier juice-shop-compose.yaml
+      copy:
+        src: ./conf/juice-shop-compose.yaml
+        dest: /home/jim/webapp/juice-shop-compose.yaml
+        mode: 0755
+      tags: copy_files
+    - name: Copie fichier juice-shop-compose.yaml
+      copy:
+        src: ./conf/metasploitable2-compose.yaml
+        dest: /home/jim/webapp/metasploitable2-compose.yaml
+        mode: 0755
+      tags: copy_files
+      copy:
+        src: ./conf/webgoat-compose.yaml
+        dest: /home/jim/webapp/webgoat-compose.yaml
         mode: 0755
       tags: copy_files
 
+
     - name: Run 'docker compose down'
       community.docker.docker_compose_v2:
-        project_src: /home/deploy/webapp
+        project_src: /home/jim/webapp
         state: absent
       tags: compose_down
 
     - name: Run 'docker compose up'
       community.docker.docker_compose_v2:
-        project_src: /home/deploy/webapp
+        project_src: /home/jim/webapp
       register: output
       tags: compose_up
     - name: Afficher resultat du lancement des services
@@ -107,7 +111,7 @@
 
     - name: Arret des services 'docker compose stop'
       community.docker.docker_compose_v2:
-        project_src: /home/deploy/webapp
+        project_src: /home/jim/webapp
         state: stopped
       register: output
       tags: compose_stop
@@ -115,21 +119,21 @@
       ansible.builtin.debug:
         var: output
       tags: compose_stop
-    - name: Verifie que les services nginx et mariadb sont arret
+    - name: Verifie que les services dvwa et www sont arret
       ansible.builtin.assert:
         that:
-          - nginx_container.State != 'running'
-          - mariadb_container.State != 'running'
+          - dvwa_container.State != 'running'
+          - www_container.State != 'running'
       vars:
-        nginx_container: >-
-          {{ output.containers | selectattr("Service", "equalto", "nginx") | first }}
-        mariadb_container: >-
-          {{ output.containers | selectattr("Service", "equalto", "mariadb") | first }}
+        dvwa_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "dvwa") | first }}
+        www_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "www") | first }}
       tags: compose_stop
 
     - name: Repart les services 'docker compose restart'
       community.docker.docker_compose_v2:
-        project_src: /home/deploy/webapp
+        project_src: /home/jim/webapp
         state: restarted
       register: output
       tags: compose_restart
@@ -137,15 +141,14 @@
       ansible.builtin.debug:
         var: output
       tags: compose_restart
-
-    - name: Verifie que les services nginx et mariadb sont parties
+    - name: Verifie que les services dvwa et www sont parties
       ansible.builtin.assert:
         that:
-          - nginx_container.State == 'running'
-          - mariadb_container.State == 'running'
+          - dvwa_container.State == 'running'
+          - www_container.State == 'running'
       vars:
-        nginx_container: >-
-          {{ output.containers | selectattr("Service", "equalto", "nginx") | first }}
-        mariadb_container: >-
-          {{ output.containers | selectattr("Service", "equalto", "mariadb") | first }}
+        dvwa_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "dvwa") | first }}
+        www_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "www") | first }}
       tags: compose_restart
