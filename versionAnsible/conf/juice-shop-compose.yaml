@@ -1,0 +1,12 @@
+# juice-shop-compose.yaml
+---
+services:
+  juice-shop:
+    image: bkimminich/juice-shop
+    ports:
+      - 3000:3000
+    networks:
+      - juice
+
+networks:
+  juice:

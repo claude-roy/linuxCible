@@ -1,0 +1,31 @@
+# metasploitable2-compose.yaml
+---
+services:
+  metaspoitable2:
+    image: cyberacademylabs/metasploitable2
+    ports:
+      - 21:21
+      - 23:23
+      - 24:22
+      - 25:25
+      - 80:80
+      - 111:111
+      - 139:139
+      - 445:445
+      - 512-514:512-514
+      - 1099:1099
+      - 1524:1524
+      - 2121:2121
+      - 3306:3306
+      - 3632:3632
+      - 5432:5432
+      - 5900:5900
+      - 6000:6000
+      - 6667:6667
+      - 8009:8009
+      - 8180:8180
+    networks:
+      - meta2
+
+networks:
+  meta2:

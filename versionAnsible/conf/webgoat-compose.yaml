@@ -1,0 +1,15 @@
+# webgoat-compose.yaml
+---
+services:
+  webgoat:
+    image: webgoat/webgoat
+    ports:
+      - 8090:8080
+      - 9090:9090
+    networks:
+      - webgoat
+    environment:
+      TZ: Canada/Eastern
+
+networks:
+  webgoat:

@@ -39,12 +39,12 @@
         name: docker
       tags: docker
 
-    - name: Create directory html
+    - name: Creer repertoire pour les applications
       ansible.builtin.file:
-        path: /home/deploy/webapp/html
+        path: /home/jim/webapp/
         state: directory
-        owner: deploy
-        group: deploy
+        owner: jim
+        group: jim
         mode: 0775
       tags: reps
     - name: Create directory conf
