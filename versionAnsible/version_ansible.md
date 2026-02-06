@@ -94,10 +94,15 @@ ssh-copy-id -i ~/.ssh/linuxcible jim@adresse_ip
 Le fichier `ansible.conf` est le fichier de configuration d'Ansible.  
 
 ### Fichier `hosts.yaml`  
-ansible_ssh_private_key_file
+
+Le fichier `hosts.yaml` est le fichier des appareils à utiliser.  
+
+Vous devez ajuster l'entrée *ansible_host* à l'adresse IP de votre VM.  
+Vous devez ajuster l'entrée *ansible_ssh_private_key_file* à votre clé SSH. Si vous n'utilisez pas une clé spécifique, vous pouvez commenter cette ligne.  
+
+### Fichier `deploy.yaml`  
 
 
-### Fichier 
 
 ## Références  
 [https://docs.ansible.com/]

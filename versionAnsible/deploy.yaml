@@ -1,0 +1,151 @@
+# deploy.yaml
+---
+- name: "Linux Cible"
+  hosts: Cibles
+  become: true
+  vars:
+    ansible_sudo_pass: S0l&il01 # Mettre votre mot de passe
+
+  pre_tasks:
+    - name: INSTALL DEPENDANCES DOCKER
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+        update_cache: yes
+      tags: docker
+    - name: AJOUT CLE GPG DE DOCKER
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      tags: docker
+    - name: AJOUT DEPOT APT DE DOCKER
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+      tags: docker
+    - name: INSTALL DOCKER
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+      tags: docker
+    - name: DEMARRE DOCKER
+      ansible.builtin.systemd_service:
+        state: started
+        name: docker
+      tags: docker
+
+    - name: Create directory html
+      ansible.builtin.file:
+        path: /home/deploy/webapp/html
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: 0775
+      tags: reps
+    - name: Create directory conf
+      ansible.builtin.file:
+        path: /home/deploy/webapp/conf
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: 0775
+      tags: reps
+    - name: Create directory php
+      ansible.builtin.file:
+        path: /home/deploy/webapp/php
+        state: directory
+        owner: deploy
+        group: deploy
+      tags : reps
+
+  tasks:
+    - name: Copie fichier default.conf
+      copy:
+        src: ./conf/default.conf
+        dest: /home/deploy/webapp/conf/default.conf
+        mode: 0755
+      tags: copy_files
+    - name: Copie fichier index.php
+      copy:
+        src: ./html/index.php
+        dest: /home/deploy/webapp/html/index.php
+        mode: 0755
+      tags: copy_files
+    - name: Copie fichier php Dockerfile
+      copy:
+        src: ./php/Dockerfile
+        dest: /home/deploy/webapp/php/Dockerfile
+        mode: 0755
+      tags: copy_files
+    - name: Copie fichier compose.yaml
+      copy:
+        src: ./compose.yaml
+        dest: /home/deploy/webapp/compose.yaml
+        mode: 0755
+      tags: copy_files
+
+    - name: Run 'docker compose down'
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/webapp
+        state: absent
+      tags: compose_down
+
+    - name: Run 'docker compose up'
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/webapp
+      register: output
+      tags: compose_up
+    - name: Afficher resultat du lancement des services
+      ansible.builtin.debug:
+        var: output
+      tags: compose_up
+
+    - name: Arret des services 'docker compose stop'
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/webapp
+        state: stopped
+      register: output
+      tags: compose_stop
+    - name: Afficher resultat du stop des services
+      ansible.builtin.debug:
+        var: output
+      tags: compose_stop
+    - name: Verifie que les services nginx et mariadb sont arret
+      ansible.builtin.assert:
+        that:
+          - nginx_container.State != 'running'
+          - mariadb_container.State != 'running'
+      vars:
+        nginx_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "nginx") | first }}
+        mariadb_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "mariadb") | first }}
+      tags: compose_stop
+
+    - name: Repart les services 'docker compose restart'
+      community.docker.docker_compose_v2:
+        project_src: /home/deploy/webapp
+        state: restarted
+      register: output
+      tags: compose_restart
+    - name: Afficher resultat du stop des services
+      ansible.builtin.debug:
+        var: output
+      tags: compose_restart
+
+    - name: Verifie que les services nginx et mariadb sont parties
+      ansible.builtin.assert:
+        that:
+          - nginx_container.State == 'running'
+          - mariadb_container.State == 'running'
+      vars:
+        nginx_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "nginx") | first }}
+        mariadb_container: >-
+          {{ output.containers | selectattr("Service", "equalto", "mariadb") | first }}
+      tags: compose_restart
