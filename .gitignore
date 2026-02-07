@@ -5,6 +5,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Pour ansible
+.traces_d_ansible
+
 # C extensions
 *.so
 

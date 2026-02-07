@@ -16,6 +16,8 @@ Vous devez avoir une VM d'installée avec les spécifications suivantes:
 
 **Note 1 :** Pour créer ce document, j'ai utilisé un XUbuntu 25.10 avec une installation minimale. Si, vous utilisez une autre distribution ou version de Linux, il se peut que vous deviez faire des ajustements aux fichiers.  
 
+**Attention :** il semble avoir un problème avec Ubuntu 25.10 (Timeout for privilege escalation).  
+
 Pour l'installation du serveur SSH :  
 
 ```bash
@@ -100,9 +102,33 @@ Le fichier `hosts.yaml` est le fichier des appareils à utiliser.
 Vous devez ajuster l'entrée *ansible_host* à l'adresse IP de votre VM.  
 Vous devez ajuster l'entrée *ansible_ssh_private_key_file* à votre clé SSH. Si vous n'utilisez pas une clé spécifique, vous pouvez commenter cette ligne.  
 
+### Fichier `group_vars/Cible.yaml`    
+
+Le fichier `Cible.yaml` contient la variable `ansible_sudo_pass` que vous devez changer pour le mot de passe de l'utilisateur de la cible Linux.  
+
 ### Fichier `deploy.yaml`  
 
+Avant de faire un déploiement, il est recommandé de vérifier la fonctionnalité d'Ansible et du fait même la connectivité.
 
+```bash
+ansible -m ping all  
+```  
+
+Le déploiment est regroupé par étape en utilisant les `tags`. Le déploiement avec l'utilisation des tags se fait de la manière suivant :  
+
+```bash
+ansible-playbook deploy --tags docker # vous remplacer le tag docker par celui de l'étape.
+```  
+
+Les étapes et les `tags` sont les suivants :  
+
+1. Installation de Docker : tag docker.  
+2. Création des répertoires : tag reps.  
+3. Clône du dépôt Mutillidae : tag clone_git.  
+4. Copie des fichier Docker Compose : tag copy_files.  
+5. Le lancement des conteneurs : tag compose_up.  
+6. L'arrêt des conteneurs : tag compose_stop.  
+7. L'arrêt et effassage des conteneurs : tag compose_down.  
 
 ## Références  
 [https://docs.ansible.com/]

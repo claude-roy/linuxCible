@@ -3,9 +3,6 @@
 - name: "Linux Cible"
   hosts: Cibles
   become: true
-  vars:
-    ansible_sudo_pass: S0l&il01 # Mettre votre mot de passe
-
   pre_tasks:
     - name: INSTALL DEPENDANCES DOCKER
       apt:
@@ -86,6 +83,7 @@
         dest: /home/jim/webapp/metasploitable2-compose.yaml
         mode: 0755
       tags: copy_files
+    - name: Copie fichier webgoat-compose.yaml
       copy:
         src: ./conf/webgoat-compose.yaml
         dest: /home/jim/webapp/webgoat-compose.yaml

@@ -1,12 +1,13 @@
 # hosts.yaml
 ---
-Cibles:
-  hosts:
-    linux-cible:
-      ansible_host: 192.168.11.178
-      ansible_ssh_private_key_file: ~/.ssh/linuxcible
-
-local:
+all:
   hosts:
     control:
       ansible_connection: local
+
+Cibles:
+  hosts:
+    linux-cible:
+      ansible_host: 192.168.11.116
+      ansible_ssh_private_key_file: /Users/clroy/.ssh/linuxcible
+

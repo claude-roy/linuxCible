@@ -30,3 +30,353 @@
     "changed": false,
     "ping": "pong"
 }
+2026-02-06 12:23:42,985 p=30355 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-06 12:23:43,078 p=30355 u=clroy n=ansible INFO| linux-cible | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.13"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-06 12:36:48,628 p=33387 u=clroy n=ansible WARNING| [WARNING]: Found duplicate mapping key 'copy'.
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:89:7
+
+87         mode: 0755
+88       tags: copy_files
+89       copy:
+         ^ column 7
+
+Using last defined value only.
+
+
+2026-02-06 12:36:48,628 p=33387 u=clroy n=ansible WARNING| [WARNING]: Found duplicate mapping key 'tags'.
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:93:7
+
+91         dest: /home/jim/webapp/webgoat-compose.yaml
+92         mode: 0755
+93       tags: copy_files
+         ^ column 7
+
+Using last defined value only.
+
+
+2026-02-06 12:36:48,654 p=33387 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:36:48,661 p=33387 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:37:00,705 p=33387 u=clroy n=ansible ERROR| [ERROR]: User interrupted execution
+
+2026-02-06 12:39:33,633 p=34063 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:39:33,638 p=34063 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:39:46,087 p=34063 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 12:39:46,087 p=34063 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 12:39:46,088 p=34063 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:39:46,088 p=34063 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:40:49,817 p=34381 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:40:49,822 p=34381 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:41:02,280 p=34381 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 12:41:02,280 p=34381 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 12:41:02,281 p=34381 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:41:02,281 p=34381 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:45:12,490 p=35445 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:45:12,495 p=35445 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:45:44,944 p=35445 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (32s) waiting for privilege escalation prompt:
+
+2026-02-06 12:45:44,944 p=35445 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (32s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 12:45:44,945 p=35445 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:45:44,945 p=35445 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:46:58,948 p=35937 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:46:58,953 p=35937 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:46:59,197 p=35937 u=clroy n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: /home/clroy/.ssh/linuxcible: No such file or directory
+jim@192.168.11.178: Permission denied (publickey,password).
+
+
+2026-02-06 12:46:59,198 p=35937 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: /home/clroy/.ssh/linuxcible: No such file or directory\r\njim@192.168.11.178: Permission denied (publickey,password).", "unreachable": true}
+2026-02-06 12:46:59,198 p=35937 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:46:59,198 p=35937 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:47:30,267 p=36073 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:47:30,272 p=36073 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:48:02,705 p=36073 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (32s) waiting for privilege escalation prompt:
+
+2026-02-06 12:48:02,705 p=36073 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (32s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 12:48:02,706 p=36073 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:48:02,706 p=36073 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:50:05,682 p=36719 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:50:05,686 p=36719 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:50:18,119 p=36719 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 12:50:18,119 p=36719 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 12:50:18,120 p=36719 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:50:18,120 p=36719 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:50:47,537 p=36906 u=clroy n=ansible INFO| ansible-playbook [core 2.20.1]
+  config file = /Users/clroy/codes/ansible/linuxCible/versionAnsible/ansible.cfg
+  configured module search path = ['/Users/clroy/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /opt/homebrew/Cellar/ansible/13.2.0/libexec/lib/python3.14/site-packages/ansible
+  ansible collection location = /Users/clroy/.ansible/collections:/usr/share/ansible/collections
+  executable location = /opt/homebrew/bin//ansible-playbook
+  python version = 3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)] (/opt/homebrew/Cellar/ansible/13.2.0/libexec/bin/python)
+  jinja version = 3.1.6
+  pyyaml version = 6.0.3 (with libyaml v0.2.5)
+2026-02-06 12:50:47,537 p=36906 u=clroy n=ansible INFO| Using /Users/clroy/codes/ansible/linuxCible/versionAnsible/ansible.cfg as config file
+2026-02-06 12:50:47,584 p=36906 u=clroy n=ansible INFO| host_list declined parsing /Users/clroy/codes/ansible/linuxCible/versionAnsible/hosts.yaml as it did not pass its verify_file() method
+2026-02-06 12:50:47,584 p=36906 u=clroy n=ansible INFO| script declined parsing /Users/clroy/codes/ansible/linuxCible/versionAnsible/hosts.yaml as it did not pass its verify_file() method
+2026-02-06 12:50:47,586 p=36906 u=clroy n=ansible INFO| Parsed /Users/clroy/codes/ansible/linuxCible/versionAnsible/hosts.yaml inventory source with yaml plugin
+2026-02-06 12:50:47,738 p=36906 u=clroy n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-02-06 12:50:47,738 p=36906 u=clroy n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-02-06 12:50:47,739 p=36906 u=clroy n=ansible INFO| PLAYBOOK: deploy.yaml *************************************************************************
+2026-02-06 12:50:47,739 p=36906 u=clroy n=ansible INFO| 1 plays in deploy.yaml
+2026-02-06 12:50:47,740 p=36906 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:50:47,745 p=36906 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:50:47,745 p=36906 u=clroy n=ansible INFO| task path: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:3
+2026-02-06 12:50:47,756 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:50:47,757 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 192.168.11.178 '/bin/sh -c '"'"'echo ~jim && sleep 0'"'"''
+2026-02-06 12:50:47,772 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'/home/jim\n', b'')
+2026-02-06 12:50:47,772 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:50:47,772 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 192.168.11.178 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/jim/.ansible/tmp `"&& mkdir "` echo /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623 `" && echo ansible-tmp-1770400247.772128-36913-108575912096623="` echo /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623 `" ) && sleep 0'"'"''
+2026-02-06 12:50:47,789 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'ansible-tmp-1770400247.772128-36913-108575912096623=/home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623\n', b'')
+2026-02-06 12:50:47,937 p=36906 u=clroy n=ansible INFO| <linux-cible> Attempting python interpreter discovery.
+2026-02-06 12:50:47,937 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:50:47,937 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 192.168.11.178 '/bin/sh -c '"'"'echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.14'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.13'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+2026-02-06 12:50:47,952 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'FOUND\n/usr/bin/python3.13\n/usr/bin/python3\n/usr/bin/python3\nENDFOUND\n', b'')
+2026-02-06 12:50:47,955 p=36906 u=clroy n=ansible INFO| Using module file /opt/homebrew/Cellar/ansible/13.2.0/libexec/lib/python3.14/site-packages/ansible/modules/setup.py
+2026-02-06 12:50:47,955 p=36906 u=clroy n=ansible INFO| <192.168.11.178> PUT /Users/clroy/.ansible/tmp/ansible-local-36906npo5vol3/tmpw8y7x52g TO /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/AnsiballZ_setup.py
+2026-02-06 12:50:47,956 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 '[192.168.11.178]'
+2026-02-06 12:50:47,988 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'sftp> put /Users/clroy/.ansible/tmp/ansible-local-36906npo5vol3/tmpw8y7x52g /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/AnsiballZ_setup.py\n', b'')
+2026-02-06 12:50:47,989 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:50:47,989 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 192.168.11.178 '/bin/sh -c '"'"'chmod u+rwx /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/ /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/AnsiballZ_setup.py && sleep 0'"'"''
+2026-02-06 12:50:48,004 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'', b'')
+2026-02-06 12:50:48,005 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:50:48,005 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 -tt 192.168.11.178 '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=wqnzzrbgvewjliyrbhmzieobatdcrdzq] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-wqnzzrbgvewjliyrbhmzieobatdcrdzq ; /usr/bin/python3.13 /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+2026-02-06 12:51:00,022 p=36906 u=clroy n=ansible INFO| <192.168.11.178> ESTABLISH SSH CONNECTION FOR USER: jim
+2026-02-06 12:51:00,024 p=36906 u=clroy n=ansible INFO| <192.168.11.178> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/Users/clroy/.ssh/linuxcible"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="jim"' -o ConnectTimeout=10 -o 'ControlPath="/Users/clroy/.ansible/cp/38d7ff1cc7"' -o NumberOfPasswordPrompts=1 192.168.11.178 '/bin/sh -c '"'"'rm -f -r /home/jim/.ansible/tmp/ansible-tmp-1770400247.772128-36913-108575912096623/ > /dev/null 2>&1 && sleep 0'"'"''
+2026-02-06 12:51:00,044 p=36906 u=clroy n=ansible INFO| <192.168.11.178> (0, b'', b'')
+2026-02-06 12:51:00,050 p=36906 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 12:51:00,050 p=36906 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:",
+    "unreachable": true
+}
+2026-02-06 12:51:00,051 p=36906 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:51:00,051 p=36906 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 12:53:44,314 p=37595 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 12:53:44,318 p=37595 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 12:53:45,221 p=37595 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-06 12:53:45,223 p=37595 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-06 12:54:45,737 p=37595 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:12:7
+
+10
+11   pre_tasks:
+12     - name: INSTALL DEPENDANCES DOCKER
+         ^ column 7
+
+
+2026-02-06 12:54:45,739 p=37595 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)"}
+2026-02-06 12:54:45,740 p=37595 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 12:54:45,740 p=37595 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:00:53,578 p=39346 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:00:53,583 p=39346 u=clroy n=ansible WARNING| [WARNING]: Found variable using reserved name 'become_method'.
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/group_vars/Cibles.yaml:4:1
+
+2 ---
+3 ansible_user: jim
+4 become_method: sudo  
+  ^ column 1
+
+
+2026-02-06 13:00:53,584 p=39346 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:01:06,052 p=39346 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 13:01:06,052 p=39346 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 13:01:06,053 p=39346 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:01:06,053 p=39346 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:01:31,162 p=39530 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:01:31,167 p=39530 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:01:43,473 p=39530 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 13:01:43,474 p=39530 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 13:01:43,475 p=39530 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:01:43,475 p=39530 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:02:48,668 p=39913 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:02:48,674 p=39913 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:03:01,134 p=39913 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 13:03:01,135 p=39913 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 13:03:01,135 p=39913 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:03:01,135 p=39913 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:03:35,618 p=40129 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:03:35,623 p=40129 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:03:36,384 p=40129 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-06 13:03:36,388 p=40129 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-06 13:04:36,805 p=40129 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:12:7
+
+10
+11   pre_tasks:
+12     - name: INSTALL DEPENDANCES DOCKER
+         ^ column 7
+
+
+2026-02-06 13:04:36,805 p=40129 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)"}
+2026-02-06 13:04:36,806 p=40129 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:04:36,806 p=40129 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:40:36,676 p=49560 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:40:36,681 p=49560 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:40:37,606 p=49560 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-06 13:40:37,609 p=49560 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-06 13:41:38,094 p=49560 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:11:7
+
+ 9
+10   pre_tasks:
+11     - name: INSTALL DEPENDANCES DOCKER
+         ^ column 7
+
+
+2026-02-06 13:41:38,094 p=49560 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)"}
+2026-02-06 13:41:38,095 p=49560 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:41:38,095 p=49560 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:46:25,414 p=51100 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:46:25,419 p=51100 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:46:26,335 p=51100 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-06 13:46:26,338 p=51100 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-06 13:47:26,816 p=51100 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:12:7
+
+10
+11   pre_tasks:
+12     - name: INSTALL DEPENDANCES DOCKER
+         ^ column 7
+
+
+2026-02-06 13:47:26,817 p=51100 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)"}
+2026-02-06 13:47:26,818 p=51100 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:47:26,819 p=51100 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-06 13:51:13,021 p=52211 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 13:51:13,026 p=52211 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 13:51:14,008 p=52211 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-06 13:51:14,012 p=52211 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-06 13:52:14,548 p=52211 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:12:7
+
+10
+11   pre_tasks:
+12     - name: INSTALL DEPENDANCES DOCKER
+         ^ column 7
+
+
+2026-02-06 13:52:14,549 p=52211 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)"}
+2026-02-06 13:52:14,550 p=52211 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 13:52:14,550 p=52211 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-06 16:39:51,539 p=93434 u=clroy n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+SHA256:C0cp9zvndpZaxflSdim4mNssnV4nDnQAu0vva1TzZME.
+Please contact your system administrator.
+Add correct host key in /Users/clroy/.ssh/known_hosts to get rid of this message.
+Offending RSA key in /Users/clroy/.ssh/known_hosts:89
+Host key for 192.168.11.183 has changed and you have requested strict checking.
+Host key verification failed.
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-02-06 16:39:51,539 p=93434 u=clroy n=ansible INFO| linux-cible | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the RSA key sent by the remote host is\nSHA256:C0cp9zvndpZaxflSdim4mNssnV4nDnQAu0vva1TzZME.\r\nPlease contact your system administrator.\r\nAdd correct host key in /Users/clroy/.ssh/known_hosts to get rid of this message.\r\nOffending RSA key in /Users/clroy/.ssh/known_hosts:89\r\nHost key for 192.168.11.183 has changed and you have requested strict checking.\r\nHost key verification failed.",
+    "unreachable": true
+}
+2026-02-06 16:43:34,670 p=94384 u=clroy n=ansible INFO| linux-cible | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.13"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-06 16:43:47,071 p=94450 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-06 16:43:47,077 p=94450 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-06 16:43:59,384 p=94450 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-06 16:43:59,385 p=94450 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-06 16:43:59,386 p=94450 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-06 16:43:59,386 p=94450 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 11:11:11,329 p=57052 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 11:11:11,338 p=57052 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 11:11:23,799 p=57052 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-07 11:11:23,800 p=57052 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-07 11:11:23,800 p=57052 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 11:11:23,800 p=57052 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 11:23:44,262 p=60349 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 11:23:44,269 p=60349 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 11:23:57,024 p=60349 u=clroy n=ansible ERROR| [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
+
+2026-02-07 11:23:57,024 p=60349 u=clroy n=ansible INFO| fatal: [linux-cible]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:", "unreachable": true}
+2026-02-07 11:23:57,025 p=60349 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 11:23:57,025 p=60349 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 11:41:42,604 p=65376 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-07 11:41:49,125 p=65376 u=clroy n=ansible ERROR| [ERROR]: User interrupted execution
+
+2026-02-07 11:41:53,352 p=65460 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-07 11:41:56,322 p=65460 u=clroy n=ansible ERROR| [ERROR]: User interrupted execution
+
+2026-02-07 11:42:01,627 p=65524 u=clroy n=ansible INFO| control | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/opt/homebrew/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-07 11:42:01,703 p=65524 u=clroy n=ansible INFO| linux-cible | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2026-02-07 11:42:07,735 p=65603 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 11:42:07,741 p=65603 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 11:42:08,038 p=65603 u=clroy n=ansible ERROR| [ERROR]: Task failed: Missing sudo password
+
+2026-02-07 11:42:08,039 p=65603 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "Task failed: Missing sudo password"}
+2026-02-07 11:42:08,039 p=65603 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 11:42:08,039 p=65603 u=clroy n=ansible INFO| linux-cible                : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-07 11:44:18,911 p=66149 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 11:44:18,918 p=66149 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 11:44:19,892 p=66149 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 11:44:19,896 p=66149 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER] *************************************************************
+2026-02-07 11:44:23,177 p=66149 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 11:44:23,179 p=66149 u=clroy n=ansible INFO| TASK [AJOUT CLE GPG DE DOCKER] ****************************************************************
+2026-02-07 11:44:23,924 p=66149 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 11:44:23,926 p=66149 u=clroy n=ansible INFO| TASK [AJOUT DEPOT APT DE DOCKER] **************************************************************
+2026-02-07 11:44:25,658 p=66149 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 11:44:25,661 p=66149 u=clroy n=ansible INFO| TASK [INSTALL DOCKER] *************************************************************************
+2026-02-07 11:44:36,326 p=66149 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 11:44:36,329 p=66149 u=clroy n=ansible INFO| TASK [DEMARRE DOCKER] *************************************************************************
+2026-02-07 11:44:36,865 p=66149 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 11:44:36,866 p=66149 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 11:44:36,867 p=66149 u=clroy n=ansible INFO| linux-cible                : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
