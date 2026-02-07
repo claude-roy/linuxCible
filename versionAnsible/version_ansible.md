@@ -2,7 +2,7 @@
 
 Ce document vous donne la version automatisée, avec Ansible, de créer la VM Linux cible.  
 
-## Pré-requis  
+## Prérequis  
 
 ### Linux cible  
 
@@ -12,9 +12,9 @@ Vous devez avoir une VM d'installée avec les spécifications suivantes:
 - mémoire : 4 Go minimum;  
 - disque : 25 Go minimum;  
 - serveur ssh;  
-- un utilisateur avec le nom "jim", l'utilisateur doit être dans les groupes d'administrations de votre distributions : par exemple les groupes wheel, sudo, adm.  
+- un utilisateur avec le nom "jim", l'utilisateur doit être dans les groupes d'administrations de votre distribution : par exemple les groupes wheel, sudo, adm.  
 
-**Note 1 :** Pour créer ce document, j'ai utilisé un XUbuntu 25.10 avec une installation minimale. Si, vous utilisez une autre distribution ou version de Linux, il se peut que vous deviez faire des ajustements aux fichiers.  
+**Note 1 :** Pour créer ce document, j'ai utilisé un XUbuntu 24.04 avec une installation minimale. Si, vous utilisez une autre distribution ou version de Linux, il se peut que vous deviez faire des ajustements aux fichiers.  
 
 **Attention :** il semble avoir un problème avec Ubuntu 25.10 (Timeout for privilege escalation).  
 
@@ -114,7 +114,7 @@ Avant de faire un déploiement, il est recommandé de vérifier la fonctionnalit
 ansible -m ping all  
 ```  
 
-Le déploiment est regroupé par étape en utilisant les `tags`. Le déploiement avec l'utilisation des tags se fait de la manière suivant :  
+Le déploiement est regroupé par étape en utilisant les `tags`. Le déploiement avec l'utilisation des tags se fait de la manière suivant :  
 
 ```bash
 ansible-playbook deploy --tags docker # vous remplacer le tag docker par celui de l'étape.
@@ -124,11 +124,15 @@ Les étapes et les `tags` sont les suivants :
 
 1. Installation de Docker : tag docker.  
 2. Création des répertoires : tag reps.  
-3. Clône du dépôt Mutillidae : tag clone_git.  
-4. Copie des fichier Docker Compose : tag copy_files.  
+3. Clone du dépôt Mutillidae : tag clone_git.  
+4. Copie des fichiers Docker Compose : tag copy_files.  
 5. Le lancement des conteneurs : tag compose_up.  
 6. L'arrêt des conteneurs : tag compose_stop.  
-7. L'arrêt et effassage des conteneurs : tag compose_down.  
+7. L'arrêt et le retrait des conteneurs : tag compose_down.  
+
+## Configuration des applications  
+
+Référez-vous à la page [README.md](../README.md) pour la configuration des applications.
 
 ## Références  
 [https://docs.ansible.com/]
