@@ -1,5 +1,9 @@
 # Configuration d'un Linux cible  
 
+Ce document vous permet de configurer une machine virtuelle Linux vulnérable.  
+
+Vous pouvez retrouver la version automatiser avec Ansible dans la section [versionAnsible](./versionAnsible/README.md)  
+
 ## Prérequis  
 
 Vous pouvez utiliser la distribution Linux que vous désirez, j'utilise personnellement XUbuntu minimal.  
