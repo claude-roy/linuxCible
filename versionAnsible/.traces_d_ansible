@@ -380,3 +380,1521 @@ Origin: <adhoc 'ping' task>
 2026-02-07 11:44:36,865 p=66149 u=clroy n=ansible INFO| ok: [linux-cible]
 2026-02-07 11:44:36,866 p=66149 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
 2026-02-07 11:44:36,867 p=66149 u=clroy n=ansible INFO| linux-cible                : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 12:55:19,194 p=83821 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 12:55:19,202 p=83821 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 12:55:20,202 p=83821 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 12:55:20,205 p=83821 u=clroy n=ansible INFO| TASK [Creer repertoire pour les applications] *************************************************
+2026-02-07 12:55:20,543 p=83821 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:55:20,546 p=83821 u=clroy n=ansible INFO| TASK [Creer repertoire pour Mutillidae] *******************************************************
+2026-02-07 12:55:20,802 p=83821 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:55:20,802 p=83821 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 12:55:20,802 p=83821 u=clroy n=ansible INFO| linux-cible                : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 12:55:34,626 p=83901 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 12:55:34,631 p=83901 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 12:55:35,413 p=83901 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 12:55:35,416 p=83901 u=clroy n=ansible INFO| TASK [Clone mutillidae] ***********************************************************************
+2026-02-07 12:55:36,600 p=83901 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:55:36,601 p=83901 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 12:55:36,602 p=83901 u=clroy n=ansible INFO| linux-cible                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 12:56:48,210 p=84221 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 12:56:48,215 p=84221 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 12:56:49,141 p=84221 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 12:56:49,144 p=84221 u=clroy n=ansible INFO| TASK [Run 'docker compose up'] ****************************************************************
+2026-02-07 12:56:49,729 p=84221 u=clroy n=ansible ERROR| [ERROR]: Task failed: Module failed: "/home/jim/webapp" does not contain compose.yaml, compose.yml, docker-compose.yaml, or docker-compose.yml
+Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:100:7
+
+ 98       tags: compose_down
+ 99
+100     - name: Run 'docker compose up'
+          ^ column 7
+
+
+2026-02-07 12:56:49,729 p=84221 u=clroy n=ansible INFO| fatal: [linux-cible]: FAILED! => {"changed": false, "msg": "\"/home/jim/webapp\" does not contain compose.yaml, compose.yml, docker-compose.yaml, or docker-compose.yml"}
+2026-02-07 12:56:49,730 p=84221 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 12:56:49,730 p=84221 u=clroy n=ansible INFO| linux-cible                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-07 12:57:17,242 p=84363 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 12:57:17,248 p=84363 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 12:57:18,023 p=84363 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 12:57:18,031 p=84363 u=clroy n=ansible INFO| TASK [Copie fichier docker-compose pour mutillidae] *******************************************
+2026-02-07 12:57:18,696 p=84363 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:18,699 p=84363 u=clroy n=ansible INFO| TASK [Copie fichier compose.yaml] *************************************************************
+2026-02-07 12:57:19,178 p=84363 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:19,181 p=84363 u=clroy n=ansible INFO| TASK [Copie fichier juice-shop-compose.yaml] **************************************************
+2026-02-07 12:57:19,659 p=84363 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:19,662 p=84363 u=clroy n=ansible INFO| TASK [Copie fichier juice-shop-compose.yaml] **************************************************
+2026-02-07 12:57:20,138 p=84363 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:20,142 p=84363 u=clroy n=ansible INFO| TASK [Copie fichier webgoat-compose.yaml] *****************************************************
+2026-02-07 12:57:20,618 p=84363 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:20,619 p=84363 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 12:57:20,619 p=84363 u=clroy n=ansible INFO| linux-cible                : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 12:57:24,404 p=84484 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 12:57:24,409 p=84484 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 12:57:25,192 p=84484 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 12:57:25,195 p=84484 u=clroy n=ansible INFO| TASK [Run 'docker compose up'] ****************************************************************
+2026-02-07 12:57:47,092 p=84484 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 12:57:47,100 p=84484 u=clroy n=ansible INFO| TASK [Afficher resultat du lancement des services] ********************************************
+2026-02-07 12:57:47,128 p=84484 u=clroy n=ansible INFO| ok: [linux-cible] => {
+    "output": {
+        "actions": [
+            {
+                "id": "docker.io/webpwnized/mutillidae:www",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "docker.io/webpwnized/mutillidae:ldap",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "sagikazarmark/dvwa",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "docker.io/webpwnized/mutillidae:ldap_admin",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "docker.io/webpwnized/mutillidae:database",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "docker.io/webpwnized/mutillidae:database_admin",
+                "status": "Pulling",
+                "what": "image"
+            },
+            {
+                "id": "webapp_ldapnet",
+                "status": "Creating",
+                "what": "network"
+            },
+            {
+                "id": "webapp_default",
+                "status": "Creating",
+                "what": "network"
+            },
+            {
+                "id": "webapp_datanet",
+                "status": "Creating",
+                "what": "network"
+            },
+            {
+                "id": "webapp_ldap_data",
+                "status": "Creating",
+                "what": "volume"
+            },
+            {
+                "id": "webapp_ldap_config",
+                "status": "Creating",
+                "what": "volume"
+            },
+            {
+                "id": "webapp_dvwadb",
+                "status": "Creating",
+                "what": "volume"
+            },
+            {
+                "id": "webapp-dvwa-1",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "database",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "directory",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "directory_admin",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "www",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "database_admin",
+                "status": "Creating",
+                "what": "container"
+            },
+            {
+                "id": "database",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "directory",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "webapp-dvwa-1",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "database_admin",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "www",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "directory_admin",
+                "status": "Starting",
+                "what": "container"
+            }
+        ],
+        "changed": true,
+        "containers": [
+            {
+                "Command": "\"docker-entrypoint.sh mariadbd\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "beccbebfcce9bcbd4720afe8bc93e8d4192e3f81947c652e8e61361527070780",
+                "Image": "docker.io/webpwnized/mutillidae:database",
+                "Labels": {
+                    "com.docker.compose.config-hash": "35e992561163a5cbd0700cf5a548c8a542fba718d56a8dd7d65dc686cbb558ae",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "MariaDB Community",
+                    "org.opencontainers.image.base.name": "docker.io/library/ubuntu:noble",
+                    "org.opencontainers.image.description": "MariaDB Database for relational SQL",
+                    "org.opencontainers.image.documentation": "https://hub.docker.com/_/mariadb/",
+                    "org.opencontainers.image.licenses": "GPL-2.0",
+                    "org.opencontainers.image.ref.name": "ubuntu",
+                    "org.opencontainers.image.source": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.title": "MariaDB Database",
+                    "org.opencontainers.image.url": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.vendor": "MariaDB Community",
+                    "org.opencontainers.image.version": "11.8.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "7794ab8a2bd820f7197fd8efd9536a068679e3236980c52c0f6c69fb99e75c31",
+                "Name": "database",
+                "Names": [
+                    "database"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "3306/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 3306,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "database",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/docker-entrypoint.sh apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "36734d6da40af3d5513166ca5cafc1697b5bcdf257c75d72c0549f3989e401cc",
+                "Image": "docker.io/webpwnized/mutillidae:database_admin",
+                "Labels": {
+                    " Apache and PHP FPM.": "",
+                    "com.docker.compose.config-hash": "2ae6cc8eb7b02fe73b76661e4194ccbeb4f4b47ff7ab217c674b2511c0190c02",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "database:service_started:false",
+                    "com.docker.compose.image": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database_admin",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "The phpMyAdmin Team <developers@phpmyadmin.net>",
+                    "org.opencontainers.image.description": "Run phpMyAdmin with Alpine",
+                    "org.opencontainers.image.documentation": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.licenses": "GPL-2.0-only",
+                    "org.opencontainers.image.source": "https://github.com/phpmyadmin/docker.git",
+                    "org.opencontainers.image.title": "Official phpMyAdmin Docker image",
+                    "org.opencontainers.image.url": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.vendor": "phpMyAdmin",
+                    "org.opencontainers.image.version": "5.2.2"
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "database_admin",
+                "Names": [
+                    "database_admin"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "0.0.0.0:81->80/tcp, [::]:81->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 81,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 81,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "database_admin",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8afad183d040eebf55a47bf63c7d0486c808b11e3167edc855eb6534a7285904",
+                "Image": "docker.io/webpwnized/mutillidae:ldap",
+                "Labels": {
+                    "com.docker.compose.config-hash": "48d1f82eef9fbac9d582f24fbed3a40797583191d73b9381233751970626babb",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "2",
+                "Mounts": "webapp_ldap_config,webapp_ldap_data",
+                "Name": "directory",
+                "Names": [
+                    "directory"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "0.0.0.0:389->389/tcp, [::]:389->389/tcp, 636/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 389,
+                        "TargetPort": 389,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 389,
+                        "TargetPort": 389,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 636,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "directory",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "fcfdef24ed028137852f429acc34f80e1b37956d1b9940510792a03bb9f0dfd9",
+                "Image": "docker.io/webpwnized/mutillidae:ldap_admin",
+                "Labels": {
+                    "com.docker.compose.config-hash": "ebf3a7db60627d60662499c3e4a998949c4d670614f5226a62f77834b1be5c83",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory_admin",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "1c63af69a3b5382092f39bcc294e87be6b90ce361d7d91f7c8baa8f09d1e5e25",
+                "Name": "directory_admin",
+                "Names": [
+                    "directory_admin"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "443/tcp, 0.0.0.0:82->80/tcp, [::]:82->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 82,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 82,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 443,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "directory_admin",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/run.sh\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "c2b2eb493fd8c19bf19de34e0d72fa376ade73c70b344896ecca621a6ceb2ab4",
+                "Image": "sagikazarmark/dvwa",
+                "Labels": {
+                    "com.docker.compose.config-hash": "641560b03b60984ce65e4ed311335159faf624ba1a59e68162868e10e39f5f91",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "dvwa",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "webapp_dvwadb",
+                "Name": "webapp-dvwa-1",
+                "Names": [
+                    "webapp-dvwa-1"
+                ],
+                "Networks": [
+                    "webapp_default"
+                ],
+                "Ports": "0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 0.0.0.0:8080->80/tcp, [::]:8080->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 8080,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 8080,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 3306,
+                        "TargetPort": 3306,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 3306,
+                        "TargetPort": 3306,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "dvwa",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"docker-php-entrypoint apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8f774a3f8d8f9f0eb978f3739d6b7deccdbb2e65ab71a5e7a4c5cf7612f8f4fa",
+                "Image": "docker.io/webpwnized/mutillidae:www",
+                "Labels": {
+                    "com.docker.compose.config-hash": "d36098d3d6856bd4c9f25aa89915491aec6692deca7aee35f114179acb4adaa2",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "www",
+                    "com.docker.compose.version": "5.0.2",
+                    "database:service_started:false": ""
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "www",
+                "Names": [
+                    "www"
+                ],
+                "Networks": [
+                    "webapp_datanet",
+                    "webapp_ldapnet"
+                ],
+                "Ports": "0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 80,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 80,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 443,
+                        "TargetPort": 443,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 443,
+                        "TargetPort": 443,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "1 second ago",
+                "Service": "www",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            }
+        ],
+        "failed": false,
+        "images": [
+            {
+                "ContainerName": "directory",
+                "Created": "2021-02-19T13:09:16.320866632Z",
+                "ID": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                "LastTagTime": "2026-02-07T17:57:40.063580184Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 91666102,
+                "Tag": "ldap"
+            },
+            {
+                "ContainerName": "directory_admin",
+                "Created": "2025-08-03T18:57:58.990518095Z",
+                "ID": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                "LastTagTime": "2026-02-07T17:57:42.94396858Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 110742261,
+                "Tag": "ldap_admin"
+            },
+            {
+                "ContainerName": "database_admin",
+                "Created": "2025-08-03T18:57:50.911087217Z",
+                "ID": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                "LastTagTime": "2026-02-07T17:57:45.029009165Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 198717359,
+                "Tag": "database_admin"
+            },
+            {
+                "ContainerName": "www",
+                "Created": "2025-08-03T18:58:50.018017587Z",
+                "ID": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                "LastTagTime": "2026-02-07T17:57:45.595859317Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 220247323,
+                "Tag": "www"
+            },
+            {
+                "ContainerName": "webapp-dvwa-1",
+                "Created": "2017-03-20T03:02:28.507548247Z",
+                "ID": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                "LastTagTime": "2026-02-07T17:57:36.003507354Z",
+                "Platform": "linux/amd64",
+                "Repository": "sagikazarmark/dvwa",
+                "Size": 117306834,
+                "Tag": "latest"
+            },
+            {
+                "ContainerName": "database",
+                "Created": "2025-08-03T18:58:05.827286593Z",
+                "ID": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                "LastTagTime": "2026-02-07T17:57:43.182654823Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 122227690,
+                "Tag": "database"
+            }
+        ],
+        "stderr": "{\"id\":\"Image docker.io/webpwnized/mutillidae:www\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image sagikazarmark/dvwa\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap_admin\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:database\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:database_admin\",\"status\":\"Working\",\"text\":\"Pulling\"}\n{\"id\":\"Image sagikazarmark/dvwa\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap_admin\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:database\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:database_admin\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Image docker.io/webpwnized/mutillidae:www\",\"status\":\"Done\",\"text\":\"Pulled\"}\n{\"id\":\"Network webapp_ldapnet\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Network webapp_ldapnet\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Network webapp_default\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Network webapp_default\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Network webapp_datanet\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Network webapp_datanet\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Volume webapp_ldap_data\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Volume webapp_ldap_data\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Volume webapp_ldap_config\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Volume webapp_ldap_config\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Volume webapp_dvwadb\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Volume webapp_dvwadb\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Creating\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Created\"}\n{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Started\"}\n",
+        "stderr_lines": [
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:www\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image sagikazarmark/dvwa\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap_admin\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:database\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:database_admin\",\"status\":\"Working\",\"text\":\"Pulling\"}",
+            "{\"id\":\"Image sagikazarmark/dvwa\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:ldap_admin\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:database\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:database_admin\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Image docker.io/webpwnized/mutillidae:www\",\"status\":\"Done\",\"text\":\"Pulled\"}",
+            "{\"id\":\"Network webapp_ldapnet\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Network webapp_ldapnet\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Network webapp_default\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Network webapp_default\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Network webapp_datanet\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Network webapp_datanet\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Volume webapp_ldap_data\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Volume webapp_ldap_data\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Volume webapp_ldap_config\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Volume webapp_ldap_config\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Volume webapp_dvwadb\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Volume webapp_dvwadb\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Creating\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Created\"}",
+            "{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Started\"}"
+        ]
+    }
+}
+2026-02-07 12:57:47,129 p=84484 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 12:57:47,129 p=84484 u=clroy n=ansible INFO| linux-cible                : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 13:11:32,793 p=88212 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 13:11:32,801 p=88212 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 13:11:33,882 p=88212 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 13:11:33,886 p=88212 u=clroy n=ansible INFO| TASK [Arret des services 'docker compose stop'] ***********************************************
+2026-02-07 13:11:45,075 p=88212 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 13:11:45,081 p=88212 u=clroy n=ansible INFO| TASK [Afficher resultat du stop des services] *************************************************
+2026-02-07 13:11:45,102 p=88212 u=clroy n=ansible INFO| ok: [linux-cible] => {
+    "output": {
+        "actions": [
+            {
+                "id": "database_admin",
+                "status": "Stopping",
+                "what": "container"
+            },
+            {
+                "id": "www",
+                "status": "Stopping",
+                "what": "container"
+            },
+            {
+                "id": "directory_admin",
+                "status": "Stopping",
+                "what": "container"
+            },
+            {
+                "id": "webapp-dvwa-1",
+                "status": "Stopping",
+                "what": "container"
+            },
+            {
+                "id": "directory",
+                "status": "Stopping",
+                "what": "container"
+            },
+            {
+                "id": "database",
+                "status": "Stopping",
+                "what": "container"
+            }
+        ],
+        "changed": true,
+        "containers": [
+            {
+                "Command": "\"docker-entrypoint.sh mariadbd\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "beccbebfcce9bcbd4720afe8bc93e8d4192e3f81947c652e8e61361527070780",
+                "Image": "docker.io/webpwnized/mutillidae:database",
+                "Labels": {
+                    "com.docker.compose.config-hash": "35e992561163a5cbd0700cf5a548c8a542fba718d56a8dd7d65dc686cbb558ae",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "MariaDB Community",
+                    "org.opencontainers.image.base.name": "docker.io/library/ubuntu:noble",
+                    "org.opencontainers.image.description": "MariaDB Database for relational SQL",
+                    "org.opencontainers.image.documentation": "https://hub.docker.com/_/mariadb/",
+                    "org.opencontainers.image.licenses": "GPL-2.0",
+                    "org.opencontainers.image.ref.name": "ubuntu",
+                    "org.opencontainers.image.source": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.title": "MariaDB Database",
+                    "org.opencontainers.image.url": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.vendor": "MariaDB Community",
+                    "org.opencontainers.image.version": "11.8.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "7794ab8a2bd820f7197fd8efd9536a068679e3236980c52c0f6c69fb99e75c31",
+                "Name": "database",
+                "Names": [
+                    "database"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "database",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (0) 8 seconds ago"
+            },
+            {
+                "Command": "\"/docker-entrypoint.sh apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "36734d6da40af3d5513166ca5cafc1697b5bcdf257c75d72c0549f3989e401cc",
+                "Image": "docker.io/webpwnized/mutillidae:database_admin",
+                "Labels": {
+                    " Apache and PHP FPM.": "",
+                    "com.docker.compose.config-hash": "2ae6cc8eb7b02fe73b76661e4194ccbeb4f4b47ff7ab217c674b2511c0190c02",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "database:service_started:false",
+                    "com.docker.compose.image": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database_admin",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "The phpMyAdmin Team <developers@phpmyadmin.net>",
+                    "org.opencontainers.image.description": "Run phpMyAdmin with Alpine",
+                    "org.opencontainers.image.documentation": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.licenses": "GPL-2.0-only",
+                    "org.opencontainers.image.source": "https://github.com/phpmyadmin/docker.git",
+                    "org.opencontainers.image.title": "Official phpMyAdmin Docker image",
+                    "org.opencontainers.image.url": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.vendor": "phpMyAdmin",
+                    "org.opencontainers.image.version": "5.2.2"
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "database_admin",
+                "Names": [
+                    "database_admin"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "database_admin",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (0) 9 seconds ago"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8afad183d040eebf55a47bf63c7d0486c808b11e3167edc855eb6534a7285904",
+                "Image": "docker.io/webpwnized/mutillidae:ldap",
+                "Labels": {
+                    "com.docker.compose.config-hash": "48d1f82eef9fbac9d582f24fbed3a40797583191d73b9381233751970626babb",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "2",
+                "Mounts": "webapp_ldap_config,webapp_ldap_data",
+                "Name": "directory",
+                "Names": [
+                    "directory"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "directory",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (0) 8 seconds ago"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "fcfdef24ed028137852f429acc34f80e1b37956d1b9940510792a03bb9f0dfd9",
+                "Image": "docker.io/webpwnized/mutillidae:ldap_admin",
+                "Labels": {
+                    "com.docker.compose.config-hash": "ebf3a7db60627d60662499c3e4a998949c4d670614f5226a62f77834b1be5c83",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory_admin",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "1c63af69a3b5382092f39bcc294e87be6b90ce361d7d91f7c8baa8f09d1e5e25",
+                "Name": "directory_admin",
+                "Names": [
+                    "directory_admin"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "directory_admin",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (0) 9 seconds ago"
+            },
+            {
+                "Command": "\"/run.sh\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 137,
+                "Health": "",
+                "ID": "c2b2eb493fd8c19bf19de34e0d72fa376ade73c70b344896ecca621a6ceb2ab4",
+                "Image": "sagikazarmark/dvwa",
+                "Labels": {
+                    "com.docker.compose.config-hash": "641560b03b60984ce65e4ed311335159faf624ba1a59e68162868e10e39f5f91",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "dvwa",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "webapp_dvwadb",
+                "Name": "webapp-dvwa-1",
+                "Names": [
+                    "webapp-dvwa-1"
+                ],
+                "Networks": [
+                    "webapp_default"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "dvwa",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (137) Less than a second ago"
+            },
+            {
+                "Command": "\"docker-php-entrypoint apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8f774a3f8d8f9f0eb978f3739d6b7deccdbb2e65ab71a5e7a4c5cf7612f8f4fa",
+                "Image": "docker.io/webpwnized/mutillidae:www",
+                "Labels": {
+                    "com.docker.compose.config-hash": "d36098d3d6856bd4c9f25aa89915491aec6692deca7aee35f114179acb4adaa2",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "www",
+                    "com.docker.compose.version": "5.0.2",
+                    "database:service_started:false": ""
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "www",
+                "Names": [
+                    "www"
+                ],
+                "Networks": [
+                    "webapp_datanet",
+                    "webapp_ldapnet"
+                ],
+                "Ports": "",
+                "Project": "webapp",
+                "Publishers": [],
+                "RunningFor": "13 minutes ago",
+                "Service": "www",
+                "Size": "0B",
+                "State": "exited",
+                "Status": "Exited (0) 9 seconds ago"
+            }
+        ],
+        "failed": false,
+        "images": [
+            {
+                "ContainerName": "database",
+                "Created": "2025-08-03T18:58:05.827286593Z",
+                "ID": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                "LastTagTime": "2026-02-07T17:57:43.182654823Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 122227690,
+                "Tag": "database"
+            },
+            {
+                "ContainerName": "directory",
+                "Created": "2021-02-19T13:09:16.320866632Z",
+                "ID": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                "LastTagTime": "2026-02-07T17:57:40.063580184Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 91666102,
+                "Tag": "ldap"
+            },
+            {
+                "ContainerName": "directory_admin",
+                "Created": "2025-08-03T18:57:58.990518095Z",
+                "ID": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                "LastTagTime": "2026-02-07T17:57:42.94396858Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 110742261,
+                "Tag": "ldap_admin"
+            },
+            {
+                "ContainerName": "database_admin",
+                "Created": "2025-08-03T18:57:50.911087217Z",
+                "ID": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                "LastTagTime": "2026-02-07T17:57:45.029009165Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 198717359,
+                "Tag": "database_admin"
+            },
+            {
+                "ContainerName": "www",
+                "Created": "2025-08-03T18:58:50.018017587Z",
+                "ID": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                "LastTagTime": "2026-02-07T17:57:45.595859317Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 220247323,
+                "Tag": "www"
+            },
+            {
+                "ContainerName": "webapp-dvwa-1",
+                "Created": "2017-03-20T03:02:28.507548247Z",
+                "ID": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                "LastTagTime": "2026-02-07T17:57:36.003507354Z",
+                "Platform": "linux/amd64",
+                "Repository": "sagikazarmark/dvwa",
+                "Size": 117306834,
+                "Tag": "latest"
+            }
+        ],
+        "stderr": "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Running\"}\n{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Running\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Running\"}\n{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Running\"}\n{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Running\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Running\"}\n\n{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Stopped\"}\n{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Stopped\"}\n{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Stopped\"}\n{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Stopping\"}\n{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Stopped\"}\n{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Stopped\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Stopped\"}\n",
+        "stderr_lines": [
+            "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Running\"}",
+            "",
+            "{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Stopped\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Stopped\"}",
+            "{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Stopped\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Stopping\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Stopped\"}",
+            "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Stopped\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Stopped\"}"
+        ]
+    }
+}
+2026-02-07 13:11:45,108 p=88212 u=clroy n=ansible INFO| TASK [Verifie que les services dvwa et www sont arret] ****************************************
+2026-02-07 13:11:45,182 p=88212 u=clroy n=ansible INFO| ok: [linux-cible] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+2026-02-07 13:11:45,183 p=88212 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 13:11:45,183 p=88212 u=clroy n=ansible INFO| linux-cible                : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 13:12:05,901 p=88404 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 13:12:05,907 p=88404 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 13:12:06,752 p=88404 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 13:12:06,755 p=88404 u=clroy n=ansible INFO| TASK [Run 'docker compose up'] ****************************************************************
+2026-02-07 13:12:08,366 p=88404 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 13:12:08,371 p=88404 u=clroy n=ansible INFO| TASK [Afficher resultat du lancement des services] ********************************************
+2026-02-07 13:12:08,394 p=88404 u=clroy n=ansible INFO| ok: [linux-cible] => {
+    "output": {
+        "actions": [
+            {
+                "id": "database",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "directory",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "webapp-dvwa-1",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "directory_admin",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "database_admin",
+                "status": "Starting",
+                "what": "container"
+            },
+            {
+                "id": "www",
+                "status": "Starting",
+                "what": "container"
+            }
+        ],
+        "changed": true,
+        "containers": [
+            {
+                "Command": "\"docker-entrypoint.sh mariadbd\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "beccbebfcce9bcbd4720afe8bc93e8d4192e3f81947c652e8e61361527070780",
+                "Image": "docker.io/webpwnized/mutillidae:database",
+                "Labels": {
+                    "com.docker.compose.config-hash": "35e992561163a5cbd0700cf5a548c8a542fba718d56a8dd7d65dc686cbb558ae",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "MariaDB Community",
+                    "org.opencontainers.image.base.name": "docker.io/library/ubuntu:noble",
+                    "org.opencontainers.image.description": "MariaDB Database for relational SQL",
+                    "org.opencontainers.image.documentation": "https://hub.docker.com/_/mariadb/",
+                    "org.opencontainers.image.licenses": "GPL-2.0",
+                    "org.opencontainers.image.ref.name": "ubuntu",
+                    "org.opencontainers.image.source": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.title": "MariaDB Database",
+                    "org.opencontainers.image.url": "https://github.com/MariaDB/mariadb-docker",
+                    "org.opencontainers.image.vendor": "MariaDB Community",
+                    "org.opencontainers.image.version": "11.8.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "7794ab8a2bd820f7197fd8efd9536a068679e3236980c52c0f6c69fb99e75c31",
+                "Name": "database",
+                "Names": [
+                    "database"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "3306/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 3306,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "database",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/docker-entrypoint.sh apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "36734d6da40af3d5513166ca5cafc1697b5bcdf257c75d72c0549f3989e401cc",
+                "Image": "docker.io/webpwnized/mutillidae:database_admin",
+                "Labels": {
+                    " Apache and PHP FPM.": "",
+                    "com.docker.compose.config-hash": "2ae6cc8eb7b02fe73b76661e4194ccbeb4f4b47ff7ab217c674b2511c0190c02",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "database:service_started:false",
+                    "com.docker.compose.image": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "database_admin",
+                    "com.docker.compose.version": "5.0.2",
+                    "org.opencontainers.image.authors": "The phpMyAdmin Team <developers@phpmyadmin.net>",
+                    "org.opencontainers.image.description": "Run phpMyAdmin with Alpine",
+                    "org.opencontainers.image.documentation": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.licenses": "GPL-2.0-only",
+                    "org.opencontainers.image.source": "https://github.com/phpmyadmin/docker.git",
+                    "org.opencontainers.image.title": "Official phpMyAdmin Docker image",
+                    "org.opencontainers.image.url": "https://github.com/phpmyadmin/docker#readme",
+                    "org.opencontainers.image.vendor": "phpMyAdmin",
+                    "org.opencontainers.image.version": "5.2.2"
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "database_admin",
+                "Names": [
+                    "database_admin"
+                ],
+                "Networks": [
+                    "webapp_datanet"
+                ],
+                "Ports": "0.0.0.0:81->80/tcp, [::]:81->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 81,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 81,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "database_admin",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8afad183d040eebf55a47bf63c7d0486c808b11e3167edc855eb6534a7285904",
+                "Image": "docker.io/webpwnized/mutillidae:ldap",
+                "Labels": {
+                    "com.docker.compose.config-hash": "48d1f82eef9fbac9d582f24fbed3a40797583191d73b9381233751970626babb",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "2",
+                "Mounts": "webapp_ldap_data,webapp_ldap_config",
+                "Name": "directory",
+                "Names": [
+                    "directory"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "0.0.0.0:389->389/tcp, [::]:389->389/tcp, 636/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 389,
+                        "TargetPort": 389,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 389,
+                        "TargetPort": 389,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 636,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "directory",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/container/tool/run\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "fcfdef24ed028137852f429acc34f80e1b37956d1b9940510792a03bb9f0dfd9",
+                "Image": "docker.io/webpwnized/mutillidae:ldap_admin",
+                "Labels": {
+                    "com.docker.compose.config-hash": "ebf3a7db60627d60662499c3e4a998949c4d670614f5226a62f77834b1be5c83",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "directory_admin",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "1c63af69a3b5382092f39bcc294e87be6b90ce361d7d91f7c8baa8f09d1e5e25",
+                "Name": "directory_admin",
+                "Names": [
+                    "directory_admin"
+                ],
+                "Networks": [
+                    "webapp_ldapnet"
+                ],
+                "Ports": "443/tcp, 0.0.0.0:82->80/tcp, [::]:82->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 82,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 82,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 0,
+                        "TargetPort": 443,
+                        "URL": ""
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "directory_admin",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"/run.sh\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "c2b2eb493fd8c19bf19de34e0d72fa376ade73c70b344896ecca621a6ceb2ab4",
+                "Image": "sagikazarmark/dvwa",
+                "Labels": {
+                    "com.docker.compose.config-hash": "641560b03b60984ce65e4ed311335159faf624ba1a59e68162868e10e39f5f91",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "",
+                    "com.docker.compose.image": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "dvwa",
+                    "com.docker.compose.version": "5.0.2"
+                },
+                "LocalVolumes": "1",
+                "Mounts": "webapp_dvwadb",
+                "Name": "webapp-dvwa-1",
+                "Names": [
+                    "webapp-dvwa-1"
+                ],
+                "Networks": [
+                    "webapp_default"
+                ],
+                "Ports": "0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 0.0.0.0:8080->80/tcp, [::]:8080->80/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 8080,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 8080,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 3306,
+                        "TargetPort": 3306,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 3306,
+                        "TargetPort": 3306,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "dvwa",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            },
+            {
+                "Command": "\"docker-php-entrypoint apache2-foreground\"",
+                "CreatedAt": "2026-02-07 12:57:45 -0500 EST",
+                "ExitCode": 0,
+                "Health": "",
+                "ID": "8f774a3f8d8f9f0eb978f3739d6b7deccdbb2e65ab71a5e7a4c5cf7612f8f4fa",
+                "Image": "docker.io/webpwnized/mutillidae:www",
+                "Labels": {
+                    "com.docker.compose.config-hash": "d36098d3d6856bd4c9f25aa89915491aec6692deca7aee35f114179acb4adaa2",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.depends_on": "directory:service_started:false",
+                    "com.docker.compose.image": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "webapp",
+                    "com.docker.compose.project.config_files": "/home/jim/webapp/compose.yaml",
+                    "com.docker.compose.project.working_dir": "/home/jim/webapp",
+                    "com.docker.compose.service": "www",
+                    "com.docker.compose.version": "5.0.2",
+                    "database:service_started:false": ""
+                },
+                "LocalVolumes": "0",
+                "Mounts": "",
+                "Name": "www",
+                "Names": [
+                    "www"
+                ],
+                "Networks": [
+                    "webapp_datanet",
+                    "webapp_ldapnet"
+                ],
+                "Ports": "0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp",
+                "Project": "webapp",
+                "Publishers": [
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 80,
+                        "TargetPort": 80,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 80,
+                        "TargetPort": 80,
+                        "URL": "::"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 443,
+                        "TargetPort": 443,
+                        "URL": "0.0.0.0"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "PublishedPort": 443,
+                        "TargetPort": 443,
+                        "URL": "::"
+                    }
+                ],
+                "RunningFor": "14 minutes ago",
+                "Service": "www",
+                "Size": "0B",
+                "State": "running",
+                "Status": "Up Less than a second"
+            }
+        ],
+        "failed": false,
+        "images": [
+            {
+                "ContainerName": "webapp-dvwa-1",
+                "Created": "2017-03-20T03:02:28.507548247Z",
+                "ID": "sha256:1224167ccb59ad64751d52d7beb75fd445a252ae3c13640cfd35c927a2a6725b",
+                "LastTagTime": "2026-02-07T17:57:36.003507354Z",
+                "Platform": "linux/amd64",
+                "Repository": "sagikazarmark/dvwa",
+                "Size": 117306834,
+                "Tag": "latest"
+            },
+            {
+                "ContainerName": "directory",
+                "Created": "2021-02-19T13:09:16.320866632Z",
+                "ID": "sha256:8d5d6dd6631fa5a1e091e1fecf11101a876e435164bf6c5f5ca9939949673a8c",
+                "LastTagTime": "2026-02-07T17:57:40.063580184Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 91666102,
+                "Tag": "ldap"
+            },
+            {
+                "ContainerName": "database",
+                "Created": "2025-08-03T18:58:05.827286593Z",
+                "ID": "sha256:d1f2377c2b8ef2d6f275ba1416cd91bbede4a83308622065a9bdb04c3a58c153",
+                "LastTagTime": "2026-02-07T17:57:43.182654823Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 122227690,
+                "Tag": "database"
+            },
+            {
+                "ContainerName": "directory_admin",
+                "Created": "2025-08-03T18:57:58.990518095Z",
+                "ID": "sha256:7c752e0d3b12b5e3230eccab3d6f64f005288d17f08f91229532823358ad3eee",
+                "LastTagTime": "2026-02-07T17:57:42.94396858Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 110742261,
+                "Tag": "ldap_admin"
+            },
+            {
+                "ContainerName": "database_admin",
+                "Created": "2025-08-03T18:57:50.911087217Z",
+                "ID": "sha256:094670c153aa3ae0999220dce86ce641a899b20daf0cf5404b6cc4f090e66747",
+                "LastTagTime": "2026-02-07T17:57:45.029009165Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 198717359,
+                "Tag": "database_admin"
+            },
+            {
+                "ContainerName": "www",
+                "Created": "2025-08-03T18:58:50.018017587Z",
+                "ID": "sha256:54f57e45b2af324e325b027d82ca49f719456af3c637cdc3704cf6d301b8b74e",
+                "LastTagTime": "2026-02-07T17:57:45.595859317Z",
+                "Platform": "linux/amd64",
+                "Repository": "webpwnized/mutillidae",
+                "Size": 220247323,
+                "Tag": "www"
+            }
+        ],
+        "stderr": "{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Starting\"}\n{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Started\"}\n{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Started\"}\n",
+        "stderr_lines": [
+            "{\"id\":\"Container database\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container directory\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container database\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container www\",\"status\":\"Working\",\"text\":\"Starting\"}",
+            "{\"id\":\"Container webapp-dvwa-1\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container directory_admin\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container database_admin\",\"status\":\"Done\",\"text\":\"Started\"}",
+            "{\"id\":\"Container www\",\"status\":\"Done\",\"text\":\"Started\"}"
+        ]
+    }
+}
+2026-02-07 13:12:08,395 p=88404 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 13:12:08,395 p=88404 u=clroy n=ansible INFO| linux-cible                : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-07 13:12:20,067 p=88492 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-07 13:12:20,072 p=88492 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-07 13:12:20,927 p=88492 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-07 13:12:20,931 p=88492 u=clroy n=ansible INFO| TASK [Run 'docker compose down'] **************************************************************
+2026-02-07 13:12:31,888 p=88492 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-07 13:12:31,889 p=88492 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-07 13:12:31,889 p=88492 u=clroy n=ansible INFO| linux-cible                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
