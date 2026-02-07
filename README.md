@@ -2,7 +2,7 @@
 
 Ce document vous permet de configurer une machine virtuelle Linux vulnérable.  
 
-Vous pouvez retrouver la version automatiser avec Ansible dans la section [versionAnsible](./versionAnsible/README.md)  
+Vous pouvez retrouver la version automatiser avec Ansible dans la section [versionAnsible](./versionAnsible/)  
 
 ## Prérequis  
 
