@@ -4,13 +4,18 @@
   hosts: Cibles
   become: true
   pre_tasks:
-    - name: INSTALL DEPENDANCES DOCKER
+    - name: INSTALL DEPENDANCES DOCKER & APP.
       apt:
         name:
           - apt-transport-https
           - ca-certificates
           - curl
           - software-properties-common
+          - firefox
+          - wget
+          - git
+          - terminator
+          - neovim
         state: present
         update_cache: yes
       tags: docker

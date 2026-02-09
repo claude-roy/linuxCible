@@ -1898,3 +1898,18 @@ Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:100:7
 2026-02-07 13:12:31,888 p=88492 u=clroy n=ansible INFO| changed: [linux-cible]
 2026-02-07 13:12:31,889 p=88492 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
 2026-02-07 13:12:31,889 p=88492 u=clroy n=ansible INFO| linux-cible                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-09 13:19:42,613 p=23824 u=clroy n=ansible INFO| PLAY [Linux Cible] ****************************************************************************
+2026-02-09 13:19:42,619 p=23824 u=clroy n=ansible INFO| TASK [Gathering Facts] ************************************************************************
+2026-02-09 13:19:43,758 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-09 13:19:43,762 p=23824 u=clroy n=ansible INFO| TASK [INSTALL DEPENDANCES DOCKER & APP.] ******************************************************
+2026-02-09 13:20:56,964 p=23824 u=clroy n=ansible INFO| changed: [linux-cible]
+2026-02-09 13:20:56,971 p=23824 u=clroy n=ansible INFO| TASK [AJOUT CLE GPG DE DOCKER] ****************************************************************
+2026-02-09 13:20:57,606 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-09 13:20:57,611 p=23824 u=clroy n=ansible INFO| TASK [AJOUT DEPOT APT DE DOCKER] **************************************************************
+2026-02-09 13:20:58,036 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-09 13:20:58,041 p=23824 u=clroy n=ansible INFO| TASK [INSTALL DOCKER] *************************************************************************
+2026-02-09 13:20:59,447 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-09 13:20:59,449 p=23824 u=clroy n=ansible INFO| TASK [DEMARRE DOCKER] *************************************************************************
+2026-02-09 13:20:59,969 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
+2026-02-09 13:20:59,970 p=23824 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
+2026-02-09 13:20:59,970 p=23824 u=clroy n=ansible INFO| linux-cible                : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
