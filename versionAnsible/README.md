@@ -129,7 +129,8 @@ Les étapes et les `tags` sont les suivants :
 5. Le lancement des conteneurs : tag compose_up.  
 6. L'arrêt des conteneurs : tag compose_stop.  
 7. L'arrêt et le retrait des conteneurs : tag compose_down.
-8. Pour installer les applcations comme un service : tag set_as_service.  
+8. Ajout des utilisateurs : tag add_users
+9. Pour installer les applcations comme un service : tag set_as_service.  
 
 ## Configuration des applications  
 

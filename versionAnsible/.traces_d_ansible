@@ -1913,3 +1913,7 @@ Origin: /Users/clroy/codes/ansible/linuxCible/versionAnsible/deploy.yaml:100:7
 2026-02-09 13:20:59,969 p=23824 u=clroy n=ansible INFO| ok: [linux-cible]
 2026-02-09 13:20:59,970 p=23824 u=clroy n=ansible INFO| PLAY RECAP ************************************************************************************
 2026-02-09 13:20:59,970 p=23824 u=clroy n=ansible INFO| linux-cible                : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-16 20:49:16,885 p=85978 u=clroy n=ansible ERROR| [ERROR]: failed at splitting arguments, either an unbalanced jinja2 block or quotes: msg={{ password' | password_hash('sha512', 'mysecretsalt') }}
+
+2026-03-16 20:49:41,072 p=86075 u=clroy n=ansible ERROR| [ERROR]: failed at splitting arguments, either an unbalanced jinja2 block or quotes: msg={{ password' |OB password_hash('sha512', 'mysecretsalt') }}
+

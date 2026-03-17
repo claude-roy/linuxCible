@@ -123,6 +123,33 @@
         name: startServices
       tags: set_as_service
 
+    - name: Ajout utilisateur victor
+      ansible.builtin.user:
+        name: victor
+        create_home: yes
+        password: $6$rounds=656000$mysecretsalt$tiseK/cEIufmyXIXMSZGggH1LNqFh5cicSIMiodT/1bNu.TzzTRNMpAzQl/VRW5RHamqVHhvbXvZ.A0mEbTu//
+      tags: add_users
+    - name: Ajout utilisateur samuel
+      ansible.builtin.user:
+        name: samuel
+        create_home: yes
+        password: $6$rounds=656000$secretsalt2$vdFXNPdBl85.cf8TMcJP9yC9w6ssh9kc69y1ftP61mKD21zHIui7/Vitaizp0zEIlAscHepG.FDHD2MtnOxCX1
+      tags: add_users
+    - name: Ajout utilisateur admin
+      ansible.builtin.user:
+        name: admin
+        shell: /bin/bash
+        create_home: yes
+        groups: adm,sudo
+        password: $6$rounds=656000$secretsalt$fJks1ZjxH5fNxpFQNMFCAwUdObFQw0Bs1FLZmrF7b813hDqMlVADJEXlFqRvHk0dCmq0pI/BQ6kwHTHHHzw5R/
+      tags: add_users
+    - name: Ajout utilisateur neo
+      ansible.builtin.user:
+        name: neo
+        create_home: yes
+        password: $6$rounds=656000$secretsalt3$UdysIJ7ey0Q1lgBW0Sx4zcoNdejpCPan4Y/UKo3xBdoLF5NR3ds2.VGHa10MmURMpJV07Sn2v7MDosHjiKbuc0
+      tags: add_users
+
     - name: Run 'docker compose down'
       community.docker.docker_compose_v2:
         project_src: /home/jim/webapp
