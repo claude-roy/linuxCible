@@ -1,0 +1,13 @@
+[Unit]
+Description=Permet de lancer les applications vulnerables.
+After=network.target
+ 
+[Service]
+User=root
+WorkingDirectory=/home/etudiant
+ExecStart=/home/etudiant/startServices.sh
+Type=oneshot  # Script runs once and exits
+Restart=never
+ 
+[Install]
+WantedBy=multi-user.target

@@ -125,10 +125,11 @@ Les étapes et les `tags` sont les suivants :
 1. Installation de Docker : tag docker.  
 2. Création des répertoires : tag reps.  
 3. Clone du dépôt Mutillidae : tag clone_git.  
-4. Copie des fichiers Docker Compose : tag copy_files.  
+4. Copie des fichiers Docker Compose, script et service : tag copy_files.  
 5. Le lancement des conteneurs : tag compose_up.  
 6. L'arrêt des conteneurs : tag compose_stop.  
-7. L'arrêt et le retrait des conteneurs : tag compose_down.  
+7. L'arrêt et le retrait des conteneurs : tag compose_down.
+8. Pour installer les applcations comme un service : tag set_as_service.  
 
 ## Configuration des applications  
 

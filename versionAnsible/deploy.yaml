@@ -94,7 +94,34 @@
         dest: /home/jim/webapp/webgoat-compose.yaml
         mode: 0755
       tags: copy_files
+    - name: Copie fichier script startServices.sh
+      copy:
+        src: ../extra/startServices.sh
+        dest: /home/jim/startServices.sh
+        mode: 0777
+      tags: copy_files
+    - name: Copie fichier service startServices.service
+      copy:
+        src: ../extra/startServices.service
+        dest: /etc/systemd/system/startServices.service
+        mode: 0755
+      tags: copy_files
 
+    - name: Systemd lit changement
+      ansible.builtin.systemd_service:
+        daemon_reload: true
+      tags: set_as_service
+    - name: Active services
+      ansible.builtin.systemd_service:
+        state: started
+        name: startServices
+        enabled: true
+      tags: set_as_service
+    - name: Demarre le servcie
+      ansible.builtin.systemd_service:
+        state: started
+        name: startServices
+      tags: set_as_service
 
     - name: Run 'docker compose down'
       community.docker.docker_compose_v2:

@@ -11,12 +11,41 @@ Vous pouvez utiliser la distribution Linux que vous désirez, j'utilise personne
 Pour la configuration d'une VM XUbuntu cible, vous devez avoir les applications suivantes d'installées :
 
 ```bash
-sudo apt update && sudo apt install ssh git curl firefox wget neovim -y
+sudo apt update && sudo apt install ssh git curl firefox wget neovim vsftpd -y
 ```  
 Le serveur SSH doit être actif :
 
 ```bash
 sudo systemctl enable --now ssh
+```  
+
+## Configuration de vsftpd  
+
+Éditez le fichier de configuration `/etc/vsftpd.conf` pour changer le paramètre `anonymous_enable` à `YES`.  
+
+Vous devez relancer le service après :
+```bash  
+sudo sytemctl restart vsftpd.service
+```  
+
+## Ajout d'utilisateurs  
+
+Ajoutez les utilisateurs suivants :
+
+| Utilisateur | Mot de passe |  Commentaires |
+| :---:       | :---:        |  :---        |
+| victor      | password     |  |
+| samuel      | 123456       |  |
+| admin       | admin        |  Également dans les groupes adm et sudo. |
+| neo         | Passw0rd!    |  |
+
+Voici un exemple de création d'utilisateurs :  
+
+```bash
+sudo useradd -m victor
+sudo passwd victor
+sudo useradd -m -G adm,sudo admin
+sudo passwd admin 
 ```  
 
 ## Installation de Docker  
@@ -142,6 +171,31 @@ Une fois les applications configurées, vous pouvez arrêter et lancer vos appli
 ```bash
 docker compose stop
 docker compose start
+```  
+
+### Lancement au démarrage des applications  
+
+Si vous désirez que vos applications soient lancées au démarrage, vous devez copier le fichier de script [```startService.sh```](./extra/startServices.sh) dans votre répertoire de base (home).  
+Vous devez également copier le fichier [```startService.service```](./extra/startServices.service) dans le répertoire ```/etc/systemd/system/```. Vous devez modifier le nom d'utilisateur dans le fichier par le votre.
+
+Vous devez rendre le script exécutable :  
+
+```bash
+chmod 777 startServices.sh
+```  
+
+Vous devez relancer les démons de systemd, activer le service et le lancer :  
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable startServices.service
+sudo systemctl start startServices.service
+```  
+Vous pouvez vérifier les journaux pour des erreurs :  
+
+```bash
+journalctl -u startServices.service  # Tous les journaux.
+journalctl -u startServices.service --since "10 minutes ago"  # Les derniers journaux.
 ```  
 
 ## Configuration des applications  
