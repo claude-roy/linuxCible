@@ -137,5 +137,5 @@ Les étapes et les `tags` sont les suivants :
 Référez-vous à la page [README.md](https://github.com/claude-roy/linuxCible/blob/main/README.md#configuration-des-applications) de la configuration d'un Linux cible pour la configuration des applications.
 
 ## Références  
-[https://docs.ansible.com/]
+[https://docs.ansible.com/]  
 [https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html#installing-distros]  
