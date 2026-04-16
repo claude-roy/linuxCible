@@ -25,7 +25,7 @@ sudo systemctl enable --now ssh
 
 Vous devez relancer le service après :
 ```bash  
-sudo sytemctl restart vsftpd.service
+sudo systemctl restart vsftpd.service
 ```  
 
 ## Ajout d'utilisateurs  
