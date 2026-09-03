@@ -2,7 +2,7 @@
 
 Ce document vous permet de configurer une machine virtuelle Linux vulnérable.  
 
-Vous pouvez retrouver la version automatiser avec Ansible dans la section [versionAnsible](./versionAnsible/)  
+Vous pouvez retrouver la version automatisée avec Ansible dans la section [versionAnsible](./versionAnsible/)  
 
 ## Prérequis  
 
@@ -31,7 +31,7 @@ sudo systemctl enable --now ssh
 Les dernières versions de Linux utilisent l'algorithme yescrypt pour les mots de passe. Le chiffrement yescript n’est pas facilement cassable en ce moment, nous allons donc changer le chiffrement par défaut.  
 
 Ouvrez le fichier `/etc/pam.d/common-password` avec un éditeur texte de votre choix.  
-Trouvez la ligne `password	[success=1 default=ignore]	pam_unix.so obscure yescrypt` et la modifier comme suit :  
+Trouver la ligne `password	[success=1 default=ignore]	pam_unix.so obscure yescrypt` et la modifier comme suit :  
 
 ```bash
 # Modifier yescrypt pour sha512.
@@ -229,7 +229,7 @@ docker compose start
 ### Lancement au démarrage des applications  
 
 Si vous désirez que vos applications soient lancées au démarrage, vous devez copier le fichier de script [```startService.sh```](./extra/startServices.sh) dans votre répertoire de base (home).  
-Vous devez également copier le fichier [```startService.service```](./extra/startServices.service) dans le répertoire ```/etc/systemd/system/```. Vous devez modifier le nom d'utilisateur `etudiant` dans le fichier par le votre.
+Vous devez également copier le fichier [```startService.service```](./extra/startServices.service) dans le répertoire ```/etc/systemd/system/```. Si vous n'avez pas utilisé `jim` comme utilisateur principal, vous devez modifier le nom d'utilisateur `jim` dans le fichier par le vôtre.
 
 Vous devez rendre le script exécutable :  
 
@@ -291,7 +291,7 @@ Vous pouvez vous connecter en cliquant sur *login* et en utilisant les informati
 
 L'arbre du DC sera vide, vous devez importer les informations. Vous pouvez aller chercher l'information dans la configuration du github officiel ou utiliser le fichier suivant : [fichier de configuration de LDAP](extra/mutillidae.ldif).  
 
-Vous devez cliquer sur *import*, puis copier-coller les informations contenues dans le fichier ```mutillidae.ldif```. Vous pouvez ignorer les erreurs.  
+Vous devez cliquer sur *import*, puis copier-coller les informations contenues dans le fichier ```mutillidae.ldif```. Cliquez la boîte ```Don't stop on errors```. Vous pouvez ignorer les erreurs.  
 
 ![Importation des configurations de LDAP.](./images/importLDAP.png)  
 **Figure 6 : Importation des configurations de LDAP.**  

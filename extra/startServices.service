@@ -4,8 +4,8 @@ After=network.target
  
 [Service]
 User=root
-WorkingDirectory=/home/etudiant
-ExecStart=/home/etudiant/startServices.sh
+WorkingDirectory=/home/jim
+ExecStart=/home/jim/startServices.sh
 Type=oneshot  # Script runs once and exits
 Restart=never
  
