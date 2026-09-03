@@ -8,6 +8,13 @@ Vous pouvez retrouver la version automatiser avec Ansible dans la section [versi
 
 Vous pouvez utiliser la distribution Linux que vous désirez, j'utilise personnellement XUbuntu minimal.  
 
+Voici les spécifications que j'ai utilisées :  
+
+- installation XUbuntu minimal;  
+- mémoire : 4 Go minimum;  
+- disque : 30 Go minimum;  
+- un utilisateur avec le nom "jim", l'utilisateur doit être dans les groupes d'administrations de votre distribution : par exemple les groupes wheel, sudo, adm.  
+
 Pour la configuration d'une VM XUbuntu cible, vous devez avoir les applications suivantes d'installées :
 
 ```bash
@@ -19,16 +26,18 @@ Le serveur SSH doit être actif :
 sudo systemctl enable --now ssh
 ```  
 
-## Configuration de vsftpd  
-
-Éditez le fichier de configuration `/etc/vsftpd.conf` pour changer le paramètre `anonymous_enable` à `YES`.  
-
-Vous devez relancer le service après :
-```bash  
-sudo systemctl restart vsftpd.service
-```  
-
 ## Ajout d'utilisateurs  
+
+Les dernières versions de Linux utilisent l'algorithme yescrypt pour les mots de passe. Le chiffrement yescript n’est pas facilement cassable en ce moment, nous allons donc changer le chiffrement par défaut.  
+
+Ouvrez le fichier `/etc/pam.d/common-password` avec un éditeur texte de votre choix.  
+Trouvez la ligne `password	[success=1 default=ignore]	pam_unix.so obscure yescrypt` et la modifier comme suit :  
+
+```bash
+# Modifier yescrypt pour sha512.
+#password	[success=1 default=ignore]	pam_unix.so obscure yescrypt
+password	[success=1 default=ignore]	pam_unix.so obscure sha512
+```  
 
 Ajoutez les utilisateurs suivants :
 
@@ -46,6 +55,50 @@ sudo useradd -m victor
 sudo passwd victor
 sudo useradd -m -G adm,sudo admin
 sudo passwd admin 
+```  
+
+## Installation et configuration de vsftpd  
+
+Si ce n'est pas déjà fait, l'installation de vsftpd :  
+
+```bash
+sudo apt install vsftpd -y
+```  
+
+Éditez le fichier de configuration `/etc/vsftpd.conf` pour changer le paramètre `anonymous_enable` à `YES`.  
+
+Vous devez relancer le service après :
+```bash  
+sudo systemctl restart vsftpd.service
+```  
+
+## Installation d'un serveur smtp  
+
+Pour le serveur smtp, on utilise postfix.  
+
+```bash
+# Installation de postfix.
+sudo apt install postfix -y
+```  
+
+Pendant l'installation, utilisez le choix `Internet site`. Garder les autres choix par défauts.    
+
+La configuration se fait avec le fichier `/etc/postfix/main.cf`. Voici les changements à faire :  
+
+```config
+# Configurer un nom de domaine (FQDN) bidon.
+myhostname = mail.cible.net
+ 
+# Configurer le paramètre mydomain à notre nom de domaine
+mydomain = cible.net
+ 
+# Configurer le paramètre mydestination pour recevoir des courriels pour ce domaine.
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+```  
+
+Vous devez relancer le service après :
+```bash  
+sudo systemctl restart postfix.service
 ```  
 
 ## Installation de Docker  
@@ -83,7 +136,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 Ajouter votre utilisateur au groupe Docker :
 
 ```bash
-sudo usermod -aG docker VOTRE_UTILISATEUR
+sudo usermod -aG docker $USER
 ```  
 
 Vérifier l'installation :
@@ -130,7 +183,7 @@ database_admin:
       - database
     image: docker.io/webpwnized/mutillidae:database_admin
     ports:
-      - 81:80
+      - 80:80
     networks:
       - datanet   
 ```  
@@ -176,7 +229,7 @@ docker compose start
 ### Lancement au démarrage des applications  
 
 Si vous désirez que vos applications soient lancées au démarrage, vous devez copier le fichier de script [```startService.sh```](./extra/startServices.sh) dans votre répertoire de base (home).  
-Vous devez également copier le fichier [```startService.service```](./extra/startServices.service) dans le répertoire ```/etc/systemd/system/```. Vous devez modifier le nom d'utilisateur dans le fichier par le votre.
+Vous devez également copier le fichier [```startService.service```](./extra/startServices.service) dans le répertoire ```/etc/systemd/system/```. Vous devez modifier le nom d'utilisateur `etudiant` dans le fichier par le votre.
 
 Vous devez rendre le script exécutable :  
 
