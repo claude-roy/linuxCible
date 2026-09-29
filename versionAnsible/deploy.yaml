@@ -3,7 +3,46 @@
 - name: "Linux Cible"
   hosts: Cibles
   become: true
+
+  vars:
+    # Ajuster selon votre préférence.
+    postfix_hostname: mail.cible.net
+    postfix_domain: cible.net
+
   pre_tasks:
+    - name: INSTALL firefox wget neovim vsftpd postfix.
+      apt:
+        name:
+          - firefox
+          - wget
+          - neovim
+          - vsftpd
+          - postfix
+        state: present
+        update_cache: yes
+      tags: apps
+    - name: DEMARRE VSFTPD
+      ansible.builtin.systemd_service:
+        state: started
+        name: vsftpd
+      tags: apps
+    - name: DEMARRE POSTFIX
+      ansible.builtin.systemd_service:
+        state: started
+        name: postfix
+      tags: apps
+    # Copier la configuration main.cf
+    - name: CONFIGURE POSTFIX main.cf
+      ansible.builtin.template:
+        src: ./conf/main.cf.j2
+        dest: /etc/postfix/main.cf
+        owner: root
+        group: root
+        mode: '0644'
+        backup: trues
+      notify: restart postfix
+      tags: apps
+
     - name: INSTALL DEPENDANCES DOCKER & APP.
       apt:
         name:
@@ -209,3 +248,9 @@
         www_container: >-
           {{ output.containers | selectattr("Service", "equalto", "www") | first }}
       tags: compose_restart
+
+  handlers:
+    - name: restart postfix
+      ansible.builtin.systemd:
+        name: postfix
+        state: restarted

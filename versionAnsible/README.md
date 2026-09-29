@@ -2,6 +2,46 @@
 
 Ce document vous donne la version automatisée, avec Ansible, de créer la VM Linux cible.  
 
+## À faire  
+
+Ajout installation de firefox wget neovim vsftpd.  
+
+Éditez le fichier de configuration `/etc/vsftpd.conf` pour changer le paramètre `anonymous_enable` à `YES`.  
+
+Vous devez relancer le service après :
+```bash  
+sudo systemctl restart vsftpd.service
+```  
+
+Pour le serveur smtp, on utilise postfix.  
+
+```bash
+# Installation de postfix.
+sudo apt install postfix -y
+```  
+
+Pendant l'installation, utilisez le choix `Internet site`. Garder les autres choix par défauts.    
+
+La configuration se fait avec le fichier `/etc/postfix/main.cf`. Voici les changements à faire :  
+
+```config
+# Configurer un nom de domaine (FQDN) bidon.
+myhostname = mail.cible.net
+ 
+# Configurer le paramètre mydomain à notre nom de domaine
+mydomain = cible.net
+ 
+# Configurer le paramètre mydestination pour recevoir des courriels pour ce domaine.
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+```  
+
+Vous devez relancer le service après :
+```bash  
+sudo systemctl restart postfix.service
+```  
+
+
+
 ## Prérequis  
 
 ### Linux cible  
@@ -122,7 +162,8 @@ ansible-playbook deploy --tags docker # vous remplacer le tag docker par celui d
 
 Les étapes et les `tags` sont les suivants :  
 
-1. Installation de Docker : tag docker.  
+1. Installation des applications : tag apps.  
+2. Installation de Docker : tag docker.  
 2. Création des répertoires : tag reps.  
 3. Clone du dépôt Mutillidae : tag clone_git.  
 4. Copie des fichiers Docker Compose, script et service : tag copy_files.  
@@ -132,7 +173,7 @@ Les étapes et les `tags` sont les suivants :
 8. Ajout des utilisateurs : tag add_users
 9. Pour installer les applications comme un service : tag set_as_service.  
 
-## Configuration des applications  
+## Configuration des applications après l'installation  
 
 Référez-vous à la page [README.md](https://github.com/claude-roy/linuxCible/blob/main/README.md#configuration-des-applications) de la configuration d'un Linux cible pour la configuration des applications.
 
