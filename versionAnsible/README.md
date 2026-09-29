@@ -154,9 +154,9 @@ Le fichier `hosts.yaml` est le fichier des appareils à utiliser.
 Vous devez ajuster l'entrée *ansible_host* à l'adresse IP de votre VM.  
 Vous devez ajuster l'entrée *ansible_ssh_private_key_file* à votre clé SSH. Si vous n'utilisez pas une clé spécifique, vous pouvez commenter cette ligne.  
 
-### Fichier `group_vars/Cible.yaml`    
+### Variable `ansible_sudo_pass`    
 
-Le fichier `Cible.yaml` contient la variable `ansible_sudo_pass` que vous devez changer pour le mot de passe de l'utilisateur de la cible Linux.  
+Le fichier `deploy.yaml` contient la variable `ansible_sudo_pass` que vous devez changer pour le mot de passe de l'utilisateur de la cible Linux.  
 
 ### Fichier `deploy.yaml`  
 
@@ -178,14 +178,14 @@ Les étapes et les `tags` sont les suivants :
 
 1. Installation des applications : tag apps.  
 2. Installation de Docker : tag docker.  
-2. Création des répertoires : tag reps.  
-3. Clone du dépôt Mutillidae : tag clone_git.  
-4. Copie des fichiers Docker Compose, script et service : tag copy_files.  
-5. Le lancement des conteneurs : tag compose_up.  
-6. L'arrêt des conteneurs : tag compose_stop.  
-7. L'arrêt et le retrait des conteneurs : tag compose_down.
-8. Ajout des utilisateurs : tag add_users
-9. Pour installer les applications comme un service : tag set_as_service.  
+3. Ajout des utilisateurs : tag add_users
+4. Création des répertoires : tag reps.  
+5. Clone du dépôt Mutillidae : tag clone_git.  
+6. Copie des fichiers Docker Compose, script et service : tag copy_files.  
+7. Le lancement des conteneurs : tag compose_up.  
+8. L'arrêt des conteneurs : tag compose_stop.  
+9. L'arrêt et le retrait des conteneurs : tag compose_down.
+10. Pour installer les applications comme un service : tag set_as_service.  
 
 ## Configuration des applications après l'installation  
 

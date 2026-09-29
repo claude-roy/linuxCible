@@ -5,6 +5,7 @@
   become: true
 
   vars:
+    ansible_sudo_pass: S0l&il01
     # Ajuster selon votre préférence.
     postfix_hostname: mail.cible.net
     postfix_domain: cible.net
@@ -69,12 +70,12 @@
       deb822_repository:
         name: docker
         types: deb
-        uri: https://download.docker.com/linux/ubuntu
-        distribution: jammy
-        components: [stable]
-        architectures: [amd64]
+        uris: https://download.docker.com/linux/ubuntu
+        suites: jammy
+        components: stable
+        architectures: amd64
         signed_by: https://download.docker.com/linux/ubuntu/gpg
-        state: present
+        install_python_debian: true
       tags: docker
     - name: INSTALL DOCKER
       apt:
@@ -90,7 +91,7 @@
 
     - name: Creer repertoire pour les applications
       ansible.builtin.file:
-        path: /home/jim/webapp/
+        path: /home/jim/docker/
         state: directory
         owner: jim
         group: jim
@@ -98,47 +99,74 @@
       tags: reps
     - name: Creer repertoire pour Mutillidae
       ansible.builtin.file:
-        path: /home/jim/webapp/mutillidae-dockerhub
+        path: /home/jim/docker/mutillidae-dockerhub
         state: directory
         owner: jim
         group: jim
         mode: 0775
       tags: reps
 
+    - name: Ajout utilisateur victor
+      ansible.builtin.user:
+        name: victor
+        create_home: yes
+        password: $6$rounds=656000$mysecretsalt$tiseK/cEIufmyXIXMSZGggH1LNqFh5cicSIMiodT/1bNu.TzzTRNMpAzQl/VRW5RHamqVHhvbXvZ.A0mEbTu//
+      tags: add_users
+    - name: Ajout utilisateur samuel
+      ansible.builtin.user:
+        name: samuel
+        create_home: yes
+        password: $6$rounds=656000$secretsalt2$vdFXNPdBl85.cf8TMcJP9yC9w6ssh9kc69y1ftP61mKD21zHIui7/Vitaizp0zEIlAscHepG.FDHD2MtnOxCX1
+      tags: add_users
+    - name: Ajout utilisateur admin
+      ansible.builtin.user:
+        name: admin
+        shell: /bin/bash
+        create_home: yes
+        groups: adm,sudo
+        password: $6$rounds=656000$secretsalt$fJks1ZjxH5fNxpFQNMFCAwUdObFQw0Bs1FLZmrF7b813hDqMlVADJEXlFqRvHk0dCmq0pI/BQ6kwHTHHHzw5R/
+      tags: add_users
+    - name: Ajout utilisateur neo
+      ansible.builtin.user:
+        name: neo
+        create_home: yes
+        password: $6$rounds=656000$secretsalt3$UdysIJ7ey0Q1lgBW0Sx4zcoNdejpCPan4Y/UKo3xBdoLF5NR3ds2.VGHa10MmURMpJV07Sn2v7MDosHjiKbuc0
+      tags: add_users
+
   tasks:
     - name: Clone mutillidae
       ansible.builtin.git:
         repo: 'https://github.com/webpwnized/mutillidae-dockerhub.git'
-        dest: /home/jim/webapp/mutillidae-dockerhub
+        dest: /home/jim/docker/mutillidae-dockerhub
       tags: clone_git
     - name: Copie fichier docker-compose pour mutillidae
       copy:
         src: ./conf/docker-compose.yml
-        dest: /home/jim/webapp/mutillidae-dockerhub/docker-compose.yml
+        dest: /home/jim/docker/mutillidae-dockerhub/docker-compose.yml
         mode: 0755
       tags: copy_files
     - name: Copie fichier compose.yaml
       copy:
         src: ./conf/compose.yaml
-        dest: /home/jim/webapp/compose.yaml
+        dest: /home/jim/docker/compose.yaml
         mode: 0755
       tags: copy_files
     - name: Copie fichier juice-shop-compose.yaml
       copy:
         src: ./conf/juice-shop-compose.yaml
-        dest: /home/jim/webapp/juice-shop-compose.yaml
+        dest: /home/jim/docker/juice-shop-compose.yaml
         mode: 0755
       tags: copy_files
     - name: Copie fichier juice-shop-compose.yaml
       copy:
         src: ./conf/metasploitable2-compose.yaml
-        dest: /home/jim/webapp/metasploitable2-compose.yaml
+        dest: /home/jim/docker/metasploitable2-compose.yaml
         mode: 0755
       tags: copy_files
     - name: Copie fichier webgoat-compose.yaml
       copy:
         src: ./conf/webgoat-compose.yaml
-        dest: /home/jim/webapp/webgoat-compose.yaml
+        dest: /home/jim/docker/webgoat-compose.yaml
         mode: 0755
       tags: copy_files
     - name: Copie fichier script startServices.sh
@@ -170,42 +198,15 @@
         name: startServices
       tags: set_as_service
 
-    - name: Ajout utilisateur victor
-      ansible.builtin.user:
-        name: victor
-        create_home: yes
-        password: $6$rounds=656000$mysecretsalt$tiseK/cEIufmyXIXMSZGggH1LNqFh5cicSIMiodT/1bNu.TzzTRNMpAzQl/VRW5RHamqVHhvbXvZ.A0mEbTu//
-      tags: add_users
-    - name: Ajout utilisateur samuel
-      ansible.builtin.user:
-        name: samuel
-        create_home: yes
-        password: $6$rounds=656000$secretsalt2$vdFXNPdBl85.cf8TMcJP9yC9w6ssh9kc69y1ftP61mKD21zHIui7/Vitaizp0zEIlAscHepG.FDHD2MtnOxCX1
-      tags: add_users
-    - name: Ajout utilisateur admin
-      ansible.builtin.user:
-        name: admin
-        shell: /bin/bash
-        create_home: yes
-        groups: adm,sudo
-        password: $6$rounds=656000$secretsalt$fJks1ZjxH5fNxpFQNMFCAwUdObFQw0Bs1FLZmrF7b813hDqMlVADJEXlFqRvHk0dCmq0pI/BQ6kwHTHHHzw5R/
-      tags: add_users
-    - name: Ajout utilisateur neo
-      ansible.builtin.user:
-        name: neo
-        create_home: yes
-        password: $6$rounds=656000$secretsalt3$UdysIJ7ey0Q1lgBW0Sx4zcoNdejpCPan4Y/UKo3xBdoLF5NR3ds2.VGHa10MmURMpJV07Sn2v7MDosHjiKbuc0
-      tags: add_users
-
     - name: Run 'docker compose down'
       community.docker.docker_compose_v2:
-        project_src: /home/jim/webapp
+        project_src: /home/jim/docker
         state: absent
       tags: compose_down
 
     - name: Run 'docker compose up'
       community.docker.docker_compose_v2:
-        project_src: /home/jim/webapp
+        project_src: /home/jim/docker
       register: output
       tags: compose_up
     - name: Afficher resultat du lancement des services
@@ -215,7 +216,7 @@
 
     - name: Arret des services 'docker compose stop'
       community.docker.docker_compose_v2:
-        project_src: /home/jim/webapp
+        project_src: /home/jim/docker
         state: stopped
       register: output
       tags: compose_stop
@@ -237,7 +238,7 @@
 
     - name: Repart les services 'docker compose restart'
       community.docker.docker_compose_v2:
-        project_src: /home/jim/webapp
+        project_src: /home/jim/docker
         state: restarted
       register: output
       tags: compose_restart
