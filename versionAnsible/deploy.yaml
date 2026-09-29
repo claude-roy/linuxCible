@@ -40,11 +40,10 @@
         owner: root
         group: root
         mode: '0644'
-        backup: trues
+        backup: true
       notify: restart vsftpd
       tags: apps
 
-    # Copier la configuration main.cf
     - name: CONFIGURE POSTFIX main.cf
       ansible.builtin.template:
         src: ./conf/main.cf.j2
@@ -52,7 +51,7 @@
         owner: root
         group: root
         mode: '0644'
-        backup: trues
+        backup: true
       notify: restart postfix
       tags: apps
 
@@ -66,15 +65,15 @@
         state: present
         update_cache: yes
       tags: docker
-    - name: AJOUT CLE GPG DE DOCKER
-#      apt_key:
-      deb822_repository:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-      tags: docker
     - name: AJOUT DEPOT APT DE DOCKER
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable
+      deb822_repository:
+        name: docker
+        types: deb
+        uri: https://download.docker.com/linux/ubuntu
+        distribution: jammy
+        components: [stable]
+        architectures: [amd64]
+        signed_by: https://download.docker.com/linux/ubuntu/gpg
         state: present
       tags: docker
     - name: INSTALL DOCKER
