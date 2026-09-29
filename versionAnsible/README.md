@@ -62,12 +62,15 @@ Pour l'installation du serveur SSH :
 
 ```bash
 sudo apt update && sudo apt install ssh -y
-sudo systemctl status sshd
+sudo systemctl enable --now ssh
+sudo systemctl status ssh
 ```  
 
-### Poste de contrôle  
+### Poste de contrôle ou installation local
 
-Vous devez également avoir un poste de contrôle avec Ansible d'installé. Le poste de contrôle doit être un système Linux.  
+Vous pouvez utiliser un poste de contrôle avec Ansible d'installé. Le poste de contrôle doit être un système Linux.  
+
+Vous pouvez également faire l'installation localement.  
 
 L’installation d’Ansible peut se faire de plusieurs manières;
  
@@ -113,22 +116,31 @@ Ci-dessous un exemple de sortie de cette commande (ici avec la version 2.18.1) :
 
 ```bash
 ansible [core 2.18.1]
-  config file = None
-  configured module search path = ['/home/prof/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /home/prof/.local/share/pipx/venvs/ansible/lib/python3.12/site-packages/ansible
-  ansible collection location = /home/prof/.ansible/collections:/usr/share/ansible/collections
-  executable location = /home/prof/.local/bin/ansible
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/jim/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/jim/.local/share/pipx/venvs/ansible/lib/python3.12/site-packages/ansible
+  ansible collection location = /home/jim/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/jim/.local/bin/ansible
   python version = 3.12.7 (main, Nov  8 2024, 17:55:36) [GCC 14.2.0] (/home/prof/.local/share/pipx/venvs/ansible/bin/python)
   jinja version = 3.1.4
   libyaml = True
-```
-Vous devez copier la clé publique SSH de l'utilisateur du poste de contrôle dans l'utilisateur *jim* de la VM cible.
+```  
+
+Si vous utilisez un hôte de contrôle, vous devez copier la clé publique SSH de l'utilisateur du poste de contrôle dans l'utilisateur *jim* de la VM cible.
 
 Voici un exemple avec une clé spécifique :  
 
 ```bash  
 ssh-copy-id -i ~/.ssh/linuxcible jim@adresse_ip
 ```  
+
+Si vous travaillez localement, je vous recommande d'installer git et de cloner le dépôt linuxCible.  
+
+```bash
+sudo apt update && sudo apt install git -y
+git clone https://github.com/claude-roy/linuxCible.git
+```  
+
 
 ## Fichiers d'automatisation Ansible  
 ### Ficher `ansible.conf`  
@@ -154,10 +166,12 @@ Avant de faire un déploiement, il est recommandé de vérifier la fonctionnalit
 ansible -m ping all  
 ```  
 
+Pour un déploiement local, vous devez changer la variable ```hosts``` pour ```control```.  
+
 Le déploiement est regroupé par étape en utilisant les `tags`. Le déploiement avec l'utilisation des tags se fait de la manière suivant :  
 
 ```bash
-ansible-playbook deploy --tags docker # vous remplacer le tag docker par celui de l'étape.
+ansible-playbook deploy.yaml --tags docker # vous remplacer le tag docker par celui de l'étape.
 ```  
 
 Les étapes et les `tags` sont les suivants :  

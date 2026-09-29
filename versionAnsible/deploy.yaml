@@ -16,6 +16,8 @@
           - firefox
           - wget
           - neovim
+          - git
+          - terminator
           - vsftpd
           - postfix
         state: present
@@ -61,16 +63,12 @@
           - ca-certificates
           - curl
           - software-properties-common
-          - firefox
-          - wget
-          - git
-          - terminator
-          - neovim
         state: present
         update_cache: yes
       tags: docker
     - name: AJOUT CLE GPG DE DOCKER
-      apt_key:
+#      apt_key:
+      deb822_repository:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
       tags: docker
