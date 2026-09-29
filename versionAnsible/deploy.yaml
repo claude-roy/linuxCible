@@ -31,6 +31,17 @@
         state: started
         name: postfix
       tags: apps
+    - name: COPIE CONFIGURATION DE VSFTDP
+      copy:
+        src: ./conf/vsftpd.conf
+        dest: /etc/vsftpd.conf
+        owner: root
+        group: root
+        mode: '0644'
+        backup: trues
+      notify: restart vsftpd
+      tags: apps
+
     # Copier la configuration main.cf
     - name: CONFIGURE POSTFIX main.cf
       ansible.builtin.template:
@@ -253,4 +264,9 @@
     - name: restart postfix
       ansible.builtin.systemd:
         name: postfix
+        state: restarted
+
+    - name: restart vsftpd
+      ansible.builtin.systemd:
+        name: vsftpd
         state: restarted
