@@ -2,46 +2,6 @@
 
 Ce document vous donne la version automatisée, avec Ansible, de créer la VM Linux cible.  
 
-## À faire  
-
-Ajout installation de firefox wget neovim vsftpd.  
-
-Éditez le fichier de configuration `/etc/vsftpd.conf` pour changer le paramètre `anonymous_enable` à `YES`.  
-
-Vous devez relancer le service après :
-```bash  
-sudo systemctl restart vsftpd.service
-```  
-
-Pour le serveur smtp, on utilise postfix.  
-
-```bash
-# Installation de postfix.
-sudo apt install postfix -y
-```  
-
-Pendant l'installation, utilisez le choix `Internet site`. Garder les autres choix par défauts.    
-
-La configuration se fait avec le fichier `/etc/postfix/main.cf`. Voici les changements à faire :  
-
-```config
-# Configurer un nom de domaine (FQDN) bidon.
-myhostname = mail.cible.net
- 
-# Configurer le paramètre mydomain à notre nom de domaine
-mydomain = cible.net
- 
-# Configurer le paramètre mydestination pour recevoir des courriels pour ce domaine.
-mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
-```  
-
-Vous devez relancer le service après :
-```bash  
-sudo systemctl restart postfix.service
-```  
-
-
-
 ## Prérequis  
 
 ### Linux cible  
@@ -71,6 +31,8 @@ sudo systemctl status ssh
 Vous pouvez utiliser un poste de contrôle avec Ansible d'installé. Le poste de contrôle doit être un système Linux.  
 
 Vous pouvez également faire l'installation localement.  
+
+## Installation d'Ansible  
 
 L’installation d’Ansible peut se faire de plusieurs manières;
  
@@ -150,6 +112,8 @@ Le fichier `ansible.conf` est le fichier de configuration d'Ansible.
 ### Fichier `hosts.yaml`  
 
 Le fichier `hosts.yaml` est le fichier des appareils à utiliser.  
+
+#### Utilisation d'un poste de contôle  
 
 Vous devez ajuster l'entrée *ansible_host* à l'adresse IP de votre VM.  
 Vous devez ajuster l'entrée *ansible_ssh_private_key_file* à votre clé SSH. Si vous n'utilisez pas une clé spécifique, vous pouvez commenter cette ligne.  
