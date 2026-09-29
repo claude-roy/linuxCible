@@ -113,10 +113,14 @@ Le fichier `ansible.conf` est le fichier de configuration d'Ansible.
 
 Le fichier `hosts.yaml` est le fichier des appareils à utiliser.  
 
-#### Utilisation d'un poste de contôle  
+### Utilisation d'un poste de contrôle   
 
 Vous devez ajuster l'entrée *ansible_host* à l'adresse IP de votre VM.  
 Vous devez ajuster l'entrée *ansible_ssh_private_key_file* à votre clé SSH. Si vous n'utilisez pas une clé spécifique, vous pouvez commenter cette ligne.  
+
+### Utilisation local  
+
+Pour un déploiement local, vous devez changer la variable ```hosts``` du fichier `deploy.yaml` pour ```control```.  
 
 ### Variable `ansible_sudo_pass`    
 
@@ -128,9 +132,10 @@ Avant de faire un déploiement, il est recommandé de vérifier la fonctionnalit
 
 ```bash
 ansible -m ping all  
-```  
+# Pour une installation local
+ansible -m ping control
 
-Pour un déploiement local, vous devez changer la variable ```hosts``` pour ```control```.  
+```  
 
 Le déploiement est regroupé par étape en utilisant les `tags`. Le déploiement avec l'utilisation des tags se fait de la manière suivant :  
 
