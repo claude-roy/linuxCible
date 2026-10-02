@@ -16,7 +16,19 @@ Vous devez avoir une VM d'installée avec les spécifications suivantes:
 
 **Note 1 :** Pour créer ce document, j'ai utilisé un XUbuntu 24.04 avec une installation minimale. Si, vous utilisez une autre distribution ou version de Linux, il se peut que vous deviez faire des ajustements aux fichiers.  
 
-**Attention :** il semble avoir un problème avec Ubuntu 25.10 (Timeout for privilege escalation).  
+#### Ubuntu 25.04 et plus  
+
+Il y a un problème avec Ubuntu 25.04 (Timeout for privilege escalation) et plus. Ubuntu est passé de sudo.ws à sudo-rs et ce n'est pas compatible.  
+Une des solution est de retirer sudo-rs : ```sudo apt remove sudo-rs -y```.  
+
+L'autre est d'ajouter la variable ```become_exe``` au playbook.
+
+```config
+become: true
+become_method: sudo
+become_exe: sudo.ws 
+```  
+#### Installation du serveur ssh  
 
 Pour l'installation du serveur SSH :  
 
